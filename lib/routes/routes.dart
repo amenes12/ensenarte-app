@@ -30,7 +30,7 @@ class AppRouting {
     });
 
     appRoute.addAll({
-      "dictionaryScreen": (BuildContext context) => const DictionaryScreen(title: 'Diccionario',)
+      "dictionaryScreen": (BuildContext context) => DictionaryScreen(title: 'Diccionario',)
     });
 
     appRoute.addAll({
