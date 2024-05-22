@@ -15,8 +15,31 @@ class MyApp extends StatelessWidget {
       title: 'enSEÑArte',
       initialRoute: AppRouting.modulesScreen,
       routes: AppRouting.getRoutes(),
+      // onGenerateRoute: AppRouting.onGenerateRoute,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          color: Color.fromRGBO(97, 137, 255, 1),
+          elevation: 2,
+        ),
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+          headlineMedium: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+          headlineSmall: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black,
+          )
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(97, 137, 255, 1)),
         useMaterial3: true,
       ),
     );
