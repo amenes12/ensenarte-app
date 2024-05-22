@@ -1,6 +1,10 @@
-class ListElement {
+import 'package:myapp/routes/routes.dart';
+
+class LearningItem {
   String assetName;
   String title;
+  String resourceToLoadRoute;
+  String destinationRoute = AppRouting.resourceScreen;
 
-  ListElement(this.assetName, this.title);
+  LearningItem(this.assetName, this.title, this.resourceToLoadRoute);
 }
