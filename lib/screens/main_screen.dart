@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/routes/routes.dart';
+import 'package:myapp/utils/card_type.dart';
 
 import '../components/card_component.dart';
 
@@ -9,20 +10,26 @@ class ModulesScreen extends StatelessWidget {
   final String title = 'Menú';
 
   static const List<CardComponent> availableModules = [
-    CardComponent(title: 'Aprender', routeName: AppRouting.learnScreen, assetName: 'assets/images/banner-aprender.png',),
-    CardComponent(title: 'Practicar', routeName: AppRouting.practiceScreen, assetName: 'assets/images/banner-aprender.png',),
-    CardComponent(title: 'Diccionario', routeName: AppRouting.dictionaryScreen, assetName: 'assets/images/diccionario.png',),
-    CardComponent(title: 'Contacto', routeName: AppRouting.findScreen, assetName: 'assets/images/contacto.png',),
+    CardComponent(title: 'Aprender', routeName: AppRouting.learnScreen, assetName: 'assets/images/banner-aprender.png', cardType: CardType.fullCard,),
+    CardComponent(title: 'Practicar', routeName: AppRouting.practiceScreen, assetName: 'assets/images/banner-aprender.png', cardType: CardType.fullCard),
+    CardComponent(title: 'Diccionario', routeName: AppRouting.dictionaryScreen, assetName: 'assets/images/diccionario.png', cardType: CardType.fullCard,),
+    CardComponent(title: 'Contacto', routeName: AppRouting.findScreen, assetName: 'assets/images/contacto.png', cardType: CardType.fullCard,),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title,),
+        backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              /*
+              TO-DO: redirection to profile screen
+              */
+
+            },
             icon: const Icon(Icons.person),
           ),
         ],
