@@ -26,7 +26,12 @@ class CardComponent extends StatelessWidget {
     final height = size.height;
 
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(
+        top: 8.0,
+        bottom: 8.0,
+        left: 4.0,
+        right: 4.0
+      ),
       child: Column(
         children: [
           GestureDetector(
@@ -75,10 +80,14 @@ class CardComponent extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
                       title,
-                      style: Theme.of(context).textTheme.headlineLarge
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700
+                      )
                     ),
                   )
                 ],
