@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/routes/routes.dart';
+import 'package:myapp/utils/assets_routes.dart';
 import 'package:myapp/utils/card_type.dart';
 
 import '../components/card_component.dart';
@@ -10,10 +11,10 @@ class ModulesScreen extends StatelessWidget {
   final String title = 'Menú';
 
   static const List<CardComponent> availableModules = [
-    CardComponent(title: 'Aprender', routeName: AppRouting.learnScreen, assetName: 'assets/images/banner-aprender.png', cardType: CardType.fullCard,),
-    CardComponent(title: 'Practicar', routeName: AppRouting.practiceScreen, assetName: 'assets/images/banner-aprender.png', cardType: CardType.fullCard),
-    CardComponent(title: 'Diccionario', routeName: AppRouting.dictionaryScreen, assetName: 'assets/images/diccionario.png', cardType: CardType.fullCard,),
-    CardComponent(title: 'Contacto', routeName: AppRouting.findScreen, assetName: 'assets/images/contacto.png', cardType: CardType.fullCard,),
+    CardComponent(title: 'Aprender', routeName: AppRouting.learnScreen, assetName: BannerAsset.learn, cardType: CardType.fullCard,),
+    CardComponent(title: 'Practicar', routeName: AppRouting.practiceScreen, assetName: BannerAsset.learn, cardType: CardType.fullCard),
+    CardComponent(title: 'Diccionario', routeName: AppRouting.dictionaryScreen, assetName: BannerAsset.dictionary, cardType: CardType.fullCard,),
+    CardComponent(title: 'Contacto', routeName: AppRouting.findScreen, assetName: BannerAsset.contact, cardType: CardType.fullCard,),
   ];
 
   @override
