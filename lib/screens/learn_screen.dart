@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/card_component.dart';
 import 'package:myapp/routes/routes.dart';
+import 'package:myapp/utils/assets_routes.dart';
 import 'package:myapp/utils/card_type.dart';
 import 'package:myapp/utils/list_element.dart';
 
@@ -11,74 +12,87 @@ class LearnScreen extends StatelessWidget {
   static List<CardComponent> availableLearningLessons = [
     CardComponent(
       title: 'Frases básicas',
-      assetName: 'assets/images/frases-basicas.png',
+      assetName: LearningModuleAsset.basicPhrases,
       routeName: AppRouting.learningItemsScreen,
       cardType: CardType.halfCard,
       learningItems: [
-        LearningItem('assets/images/letra-a.png', 'Hola', 'assets/images/letra-a.png')
+        LearningItem(BasicPhraseAsset.hello, 'Hola', BasicPhraseAsset.hello),
+        LearningItem(BasicPhraseAsset.goodMorning, '¡Buenos días!', BasicPhraseAsset.goodMorning),
+        LearningItem(BasicPhraseAsset.goodNight, '¡Buenas noches!', BasicPhraseAsset.goodNight),
+        LearningItem(BasicPhraseAsset.thankYou, '¡Gracias!', BasicPhraseAsset.thankYou),
+        LearningItem(BasicPhraseAsset.please, 'Por favor', BasicPhraseAsset.please),
+        LearningItem(BasicPhraseAsset.loveYou, '¡Te quiero!', BasicPhraseAsset.loveYou),
+        LearningItem(BasicPhraseAsset.iDontKnow, 'No lo sé', BasicPhraseAsset.iDontKnow),
+        LearningItem(BasicPhraseAsset.whatDoesItMean, '¿Qué significa?', BasicPhraseAsset.whatDoesItMean),
       ],
     ),
     CardComponent(
       title: 'Abecedario',
-      assetName: 'assets/images/abecedario.png',
+      assetName: LearningModuleAsset.alphabet,
       routeName: AppRouting.learningItemsScreen,
       cardType: CardType.halfCard,
       learningItems: [
-        LearningItem('assets/images/letra-a.png', 'Letra A', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra B', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra C', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra D', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra E', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra F', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra G', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra H', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra I', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra J', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra K', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra L', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra M', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra N', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra O', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra P', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra Q', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra R', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra S', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra T', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra U', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra V', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra W', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra X', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra Y', 'assets/images/letra-a.png',),
-        LearningItem('assets/images/letra-a.png', 'Letra Z', 'assets/images/letra-a.png',),
-      ],
+        LearningItem(AlphabetAsset.letterA, 'Letra A', AlphabetAsset.letterA,),
+        LearningItem(AlphabetAsset.letterB, 'Letra B', AlphabetAsset.letterB,),
+        LearningItem(AlphabetAsset.letterC, 'Letra C', AlphabetAsset.letterC,),
+        LearningItem(AlphabetAsset.letterD, 'Letra D', AlphabetAsset.letterD,),
+        LearningItem(AlphabetAsset.letterE, 'Letra E', AlphabetAsset.letterE,),
+        LearningItem(AlphabetAsset.letterF, 'Letra F', AlphabetAsset.letterF,),
+        LearningItem(AlphabetAsset.letterG, 'Letra G', AlphabetAsset.letterG,),
+        LearningItem(AlphabetAsset.letterH, 'Letra H', AlphabetAsset.letterH,),
+        LearningItem(AlphabetAsset.letterI, 'Letra I', AlphabetAsset.letterI,),
+        LearningItem(AlphabetAsset.letterJ, 'Letra J', AlphabetAsset.letterJ,),
+        LearningItem(AlphabetAsset.letterK, 'Letra K', AlphabetAsset.letterK,),
+        LearningItem(AlphabetAsset.letterL, 'Letra L', AlphabetAsset.letterL,),
+        LearningItem(AlphabetAsset.letterM, 'Letra M', AlphabetAsset.letterM,),
+        LearningItem(AlphabetAsset.letterN, 'Letra N', AlphabetAsset.letterN,),
+        LearningItem(AlphabetAsset.letterO, 'Letra O', AlphabetAsset.letterO,),
+        LearningItem(AlphabetAsset.letterP, 'Letra P', AlphabetAsset.letterP,),
+        LearningItem(AlphabetAsset.letterQ, 'Letra Q', AlphabetAsset.letterQ,),
+        LearningItem(AlphabetAsset.letterR, 'Letra R', AlphabetAsset.letterR,),
+        LearningItem(AlphabetAsset.letterS, 'Letra S', AlphabetAsset.letterS,),
+        LearningItem(AlphabetAsset.letterT, 'Letra T', AlphabetAsset.letterT,),
+        LearningItem(AlphabetAsset.letterU, 'Letra U', AlphabetAsset.letterU,),
+        LearningItem(AlphabetAsset.letterV, 'Letra V', AlphabetAsset.letterV),
+        LearningItem(AlphabetAsset.letterW, 'Letra W', AlphabetAsset.letterW,),
+        LearningItem(AlphabetAsset.letterX, 'Letra X', AlphabetAsset.letterX,),
+        LearningItem(AlphabetAsset.letterY, 'Letra Y', AlphabetAsset.letterY,),
+        LearningItem(AlphabetAsset.letterZ, 'Letra Z', AlphabetAsset.letterZ,),
+      ]
     ),
     CardComponent(
       title: 'Números',
-      assetName: 'assets/images/numeros.png',
+      assetName: LearningModuleAsset.numbers,
       routeName: AppRouting.learningItemsScreen,
       cardType: CardType.halfCard,
       learningItems: [
-        LearningItem('assets/images/letra-a.png', 'Número 1', 'assets/images/letra-a.png',)
+        LearningItem(AlphabetAsset.letterA, 'Número 1', AlphabetAsset.letterA,)
       ],
     ),
     CardComponent(
       title: 'Familia',
-      assetName: 'assets/images/familia.png',
+      assetName: LearningModuleAsset.family,
       routeName: AppRouting.learningItemsScreen,
       cardType: CardType.halfCard,
       learningItems: [
-        LearningItem('assets/images/letra-a.png', 'Mamá', 'assets/images/letra-a.png',)
+        LearningItem(FamilyAsset.mom, 'Mamá', FamilyAsset.mom,),
+        LearningItem(FamilyAsset.dad, 'Papá', FamilyAsset.dad),
+        LearningItem(FamilyAsset.son, 'Hijo', FamilyAsset.son),
+        LearningItem(FamilyAsset.daughter, 'Hija', FamilyAsset.daughter),
+        LearningItem(FamilyAsset.sibling, 'Hermano/Hermana', FamilyAsset.sibling),
+        LearningItem(FamilyAsset.grandMa, 'Abuela', FamilyAsset.grandMa),
+        LearningItem(FamilyAsset.grandPa, 'Abuelo', FamilyAsset.grandPa),
       ],
     ),
-    CardComponent(
-      title: 'Semana',
-      assetName: 'assets/images/semana.png',
-      routeName: AppRouting.learningItemsScreen,
-      cardType: CardType.halfCard,
-      learningItems: [
-        LearningItem('assets/images/letra-a.png', 'Lunes', 'assets/images/letra-a.png',)
-      ],
-    ),
+    // CardComponent(
+    //   title: 'Semana',
+    //   assetName: LearningModuleAsset.week,
+    //   routeName: AppRouting.learningItemsScreen,
+    //   cardType: CardType.halfCard,
+    //   learningItems: [
+    //     LearningItem(AlphabetAsset.letterA, 'Lunes', AlphabetAsset.letterA,)
+    //   ],
+    // ),
   ];
 
   @override
