@@ -27,12 +27,32 @@ class ListComponent extends StatelessWidget {
               },
             );
           },
-          child: ListTile(
-            title: Text(learningItem.title),
-            leading: Image.asset(learningItem.assetName),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 8.0,
+                  bottom: 8.0,
+                ),
+                child: 
+                  ListTile(
+                    title: Text(learningItem.title),
+                    leading: Image.asset(
+                      learningItem.assetName,
+                    ),
+                    trailing: const Icon(Icons.chevron_right),
+                  ),  
+              ),
+              const Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: Colors.grey,
+                  ),
+            ],
           ),
         );
       },
+      
     );
   }
 }
