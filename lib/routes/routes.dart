@@ -46,7 +46,7 @@ class AppRouting {
     });
 
     appRoute.addAll({
-      "learningItemsScreen": (BuildContext context) => const LearnItemsScreen()
+      "learningItemsScreen": (BuildContext context) => LearnItemsScreen()
     });
     
     return appRoute;
