@@ -47,17 +47,32 @@ class CardComponent extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(97, 137, 255, 1),
                 borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 4),
+                    blurRadius: 4,
+                    color: Colors.black.withOpacity(0.25),
+                  ),
+                ],
               ),
               width: width,
               height: height * 0.25,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    assetName,
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(16)
+                      )
+                    ),
                     height: height * 0.18,
                     width: double.infinity,
-                    fit: BoxFit.cover,
+                    child: Image.asset(
+                      assetName,
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8),
@@ -75,3 +90,12 @@ class CardComponent extends StatelessWidget {
     );
   }
 }
+
+/**
+ * Image.asset(
+                    assetName,
+                    height: height * 0.18,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+ */
