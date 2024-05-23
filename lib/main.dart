@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'enSEÑArte',
       initialRoute: AppRouting.modulesScreen,
       routes: AppRouting.getRoutes(),
-      // onGenerateRoute: AppRouting.onGenerateRoute,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(
