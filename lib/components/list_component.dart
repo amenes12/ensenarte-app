@@ -14,10 +14,6 @@ class ListComponent extends StatelessWidget {
         final learningItem = elements[index];
         return GestureDetector(
           onTap: () {
-            /* 
-              to-do: navigation to each each screen of the element
-              For those cases, the element should have a resource to load, it will have (or not) actions, depending of its nature
-            */
             Navigator.pushNamed(
               context,
               elements[index].destinationRoute,
@@ -46,7 +42,7 @@ class ListComponent extends StatelessWidget {
               const Divider(
                     height: 1,
                     thickness: 1,
-                    color: Colors.grey,
+                    color:  Color.fromRGBO(97, 137, 255, 1),
                   ),
             ],
           ),
