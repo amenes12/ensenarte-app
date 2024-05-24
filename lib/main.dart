@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/routes/routes.dart';
+import 'package:ensenarte/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromARGB(255, 250, 250, 250),
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(
-          titleTextStyle:  TextStyle(
+          titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 24.0,
             fontWeight: FontWeight.w600,
@@ -33,26 +33,25 @@ class MyApp extends StatelessWidget {
         ),
         canvasColor: Colors.green,
         textTheme: const TextTheme(
-          headlineLarge: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-          headlineMedium: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-          headlineSmall: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black,
-          )
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(97, 137, 255, 1)),
+            headlineLarge: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            headlineMedium: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+            headlineSmall: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black,
+            )),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(97, 137, 255, 1)),
         useMaterial3: true,
       ),
     );
   }
 }
-

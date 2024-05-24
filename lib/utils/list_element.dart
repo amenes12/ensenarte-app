@@ -1,4 +1,4 @@
-import 'package:myapp/routes/routes.dart';
+import 'package:ensenarte/routes/routes.dart';
 
 class LearningItem {
   String assetName;

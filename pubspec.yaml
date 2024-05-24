@@ -1,5 +1,5 @@
-name: myapp
-description: "A new Flutter project."
+name: ensenarte
+description: "A mobile application to learn Peruvian sign language for the deaf Peruvian community"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+
   flutter_test:
     sdk: flutter
 
@@ -49,6 +51,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_launcher_icons:
+    android: true
+    image_path: "assets/logo/logo.png"
+    min_sdk_android: 16 # android min sdk min:16, default 21
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -64,9 +70,7 @@ flutter:
     - assets/images/modulos/
     - assets/images/frases-basicas/
     - assets/images/abecedario/
-    - assets/images/numeros/
     - assets/images/familia/
-    - assets/images/semana/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

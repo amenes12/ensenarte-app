@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/learn_items_screen.dart';
-import 'package:myapp/screens/main_screen.dart';
-import 'package:myapp/screens/learn_screen.dart';
-import 'package:myapp/screens/practice_screen.dart';
-import 'package:myapp/screens/dictionary_screen.dart';
-import 'package:myapp/screens/find_screen.dart';
-import 'package:myapp/screens/resource_screen.dart';
+import 'package:ensenarte/screens/learn_items_screen.dart';
+import 'package:ensenarte/screens/main_screen.dart';
+import 'package:ensenarte/screens/learn_screen.dart';
+import 'package:ensenarte/screens/practice_screen.dart';
+import 'package:ensenarte/screens/dictionary_screen.dart';
+import 'package:ensenarte/screens/find_screen.dart';
+import 'package:ensenarte/screens/resource_screen.dart';
 
 class AppRouting {
   static const initialRoute = modulesScreen;
@@ -21,34 +21,39 @@ class AppRouting {
   static Map<String, Widget Function(BuildContext)> getRoutes() {
     Map<String, Widget Function(BuildContext)> appRoute = {};
 
+    appRoute.addAll(
+        {"modulesScreen": (BuildContext context) => const ModulesScreen()});
+
     appRoute.addAll({
-      "modulesScreen": (BuildContext context) => const ModulesScreen()
+      "learnScreen": (BuildContext context) => const LearnScreen(
+            title: 'Aprender',
+          )
     });
 
     appRoute.addAll({
-      "learnScreen": (BuildContext context) => const LearnScreen(title: 'Aprender',)
+      "practiceScreen": (BuildContext context) => const PracticeScreen(
+            title: 'Practicar',
+          )
     });
 
     appRoute.addAll({
-      "practiceScreen": (BuildContext context) => const PracticeScreen(title: 'Practicar',)
+      "dictionaryScreen": (BuildContext context) => DictionaryScreen(
+            title: 'Diccionario',
+          )
     });
 
     appRoute.addAll({
-      "dictionaryScreen": (BuildContext context) => DictionaryScreen(title: 'Diccionario',)
+      "findScreen": (BuildContext context) => const FindScreen(
+            title: 'Contacto',
+          )
     });
 
-    appRoute.addAll({
-      "findScreen": (BuildContext context) => const FindScreen(title: 'Contacto',)
-    });
+    appRoute.addAll(
+        {"resourceScreen": (BuildContext context) => const ResourceScreen()});
 
-    appRoute.addAll({
-      "resourceScreen": (BuildContext context) => const ResourceScreen()
-    });
+    appRoute.addAll(
+        {"learningItemsScreen": (BuildContext context) => LearnItemsScreen()});
 
-    appRoute.addAll({
-      "learningItemsScreen": (BuildContext context) => LearnItemsScreen()
-    });
-    
     return appRoute;
   }
 }

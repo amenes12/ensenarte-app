@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/utils/card_type.dart';
-import 'package:myapp/utils/list_element.dart';
+import 'package:ensenarte/utils/card_type.dart';
+import 'package:ensenarte/utils/list_element.dart';
 
 class CardComponent extends StatelessWidget {
   final String title;
@@ -39,13 +39,10 @@ class CardComponent extends StatelessWidget {
               if (learningItems == null) {
                 Navigator.pushNamed(context, routeName);
               } else {
-                Navigator.pushNamed(
-                    context, 
-                    routeName,
-                    arguments: {
-                      'title': title,
-                      'learningItems': learningItems,
-                    });
+                Navigator.pushNamed(context, routeName, arguments: {
+                  'title': title,
+                  'learningItems': learningItems,
+                });
               }
             },
             child: Container(
@@ -61,16 +58,15 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.23,
+              height: height * 0.21,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(16)
-                      )
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(16)),
                     ),
                     height: height * 0.16,
                     width: double.infinity,
@@ -83,15 +79,14 @@ class CardComponent extends StatelessWidget {
                     padding: const EdgeInsets.only(
                       left: 16.0,
                       top: 8.0,
-                      bottom: 8.0
+                      bottom: 4.0,
                     ),
                     child: Text(
                       title,
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500
-                      )
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
                     ),
                   )
                 ],
@@ -103,4 +98,3 @@ class CardComponent extends StatelessWidget {
     );
   }
 }
-

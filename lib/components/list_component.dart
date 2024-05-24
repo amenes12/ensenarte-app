@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/utils/list_element.dart';
+import 'package:ensenarte/utils/list_element.dart';
 
 class ListComponent extends StatelessWidget {
   final List<LearningItem> elements;
@@ -30,25 +30,23 @@ class ListComponent extends StatelessWidget {
                   top: 8.0,
                   bottom: 8.0,
                 ),
-                child: 
-                  ListTile(
-                    title: Text(learningItem.title),
-                    leading: Image.asset(
-                      learningItem.assetName,
-                    ),
-                    trailing: const Icon(Icons.chevron_right),
-                  ),  
+                child: ListTile(
+                  title: Text(learningItem.title),
+                  leading: Image.asset(
+                    learningItem.assetName,
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                ),
               ),
               const Divider(
-                    height: 1,
-                    thickness: 1,
-                    color:  Color.fromRGBO(97, 137, 255, 1),
-                  ),
+                height: 1,
+                thickness: 1,
+                color: Color.fromRGBO(97, 137, 255, 1),
+              ),
             ],
           ),
         );
       },
-      
     );
   }
 }

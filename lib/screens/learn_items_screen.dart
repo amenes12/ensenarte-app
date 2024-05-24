@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/list_component.dart';
-import 'package:myapp/utils/list_element.dart';
+import 'package:ensenarte/components/list_component.dart';
+import 'package:ensenarte/utils/list_element.dart';
 
 class LearnItemsScreen extends StatelessWidget {
   String? title;
@@ -10,7 +10,8 @@ class LearnItemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     title = arguments?['title'];
     availableLearningItems = arguments?['learningItems'];
 
@@ -19,8 +20,9 @@ class LearnItemsScreen extends StatelessWidget {
         title: Text(title!),
       ),
       body: Center(
-        child: ListComponent(elements: availableLearningItems!,)
-      ),
+          child: ListComponent(
+        elements: availableLearningItems!,
+      )),
     );
   }
 }
