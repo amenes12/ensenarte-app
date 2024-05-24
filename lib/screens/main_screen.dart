@@ -31,7 +31,7 @@ class ModulesScreen extends StatelessWidget {
               */
 
             },
-            icon: const Icon(Icons.person),
+            icon: const Icon(Icons.person, color: Colors.white,),
           ),
         ],
       ),
