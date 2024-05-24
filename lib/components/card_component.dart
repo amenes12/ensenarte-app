@@ -27,10 +27,10 @@ class CardComponent extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(
-        top: 8.0,
-        bottom: 8.0,
+        top: 16.0,
         left: 4.0,
-        right: 4.0
+        right: 4.0,
+        bottom: 8.0,
       ),
       child: Column(
         children: [
@@ -61,7 +61,7 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.25,
+              height: height * 0.23,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -72,7 +72,7 @@ class CardComponent extends StatelessWidget {
                         top: Radius.circular(16)
                       )
                     ),
-                    height: height * 0.18,
+                    height: height * 0.16,
                     width: double.infinity,
                     child: Image.asset(
                       assetName,
@@ -80,13 +80,17 @@ class CardComponent extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.only(
+                      left: 16.0,
+                      top: 8.0,
+                      bottom: 8.0
+                    ),
                     child: Text(
                       title,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500
                       )
                     ),
                   )
@@ -100,11 +104,3 @@ class CardComponent extends StatelessWidget {
   }
 }
 
-/**
- * Image.asset(
-                    assetName,
-                    height: height * 0.18,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
- */
