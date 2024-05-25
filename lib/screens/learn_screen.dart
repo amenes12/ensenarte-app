@@ -3,7 +3,7 @@ import 'package:ensenarte/components/card_component.dart';
 import 'package:ensenarte/routes/routes.dart';
 import 'package:ensenarte/utils/assets_routes.dart';
 import 'package:ensenarte/utils/card_type.dart';
-import 'package:ensenarte/utils/list_element.dart';
+import 'package:ensenarte/models/learning_item.dart';
 
 class LearnScreen extends StatelessWidget {
   final String title;

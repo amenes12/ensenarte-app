@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ensenarte/utils/card_type.dart';
-import 'package:ensenarte/utils/list_element.dart';
+import 'package:ensenarte/models/learning_item.dart';
 
 class CardComponent extends StatelessWidget {
   final String title;
@@ -90,7 +90,6 @@ class CardComponent extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       ),
                     ),
-
                   )
                 ],
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ensenarte/utils/list_element.dart';
+import 'package:ensenarte/models/learning_item.dart';
 
 class ListComponent extends StatelessWidget {
   final List<LearningItem> elements;

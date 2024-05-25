@@ -25,7 +25,7 @@ class AppRouting {
         {"modulesScreen": (BuildContext context) => const ModulesScreen()});
 
     appRoute.addAll({
-      "learnScreen": (BuildContext context) => const LearnScreen(
+      "learnScreen": (BuildContext context) => LearnScreen(
             title: 'Aprender',
           )
     });
