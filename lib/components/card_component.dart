@@ -58,7 +58,7 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.21,
+              height: height * 0.2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -75,19 +75,22 @@ class CardComponent extends StatelessWidget {
                       fit: BoxFit.fitHeight,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                      top: 8.0,
-                      bottom: 4.0,
+                  SizedBox(
+                    height: height * 0.04,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8.0,
+                        top: 4.0,
+                      ),
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500),
-                    ),
+
                   )
                 ],
               ),
