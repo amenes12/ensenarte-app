@@ -1,7 +1,9 @@
+import 'package:ensenarte/utils/learning_item_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/routes/routes.dart';
 
 void main() {
+  LearningItemProvider.populateLearningItems();
   runApp(const MyApp());
 }
 
