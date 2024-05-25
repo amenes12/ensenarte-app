@@ -1,140 +1,140 @@
+import 'package:ensenarte/components/dictionary_search.dart';
 import 'package:flutter/material.dart';
-import 'package:ensenarte/components/list_component.dart';
 import 'package:ensenarte/utils/assets_routes.dart';
 import 'package:ensenarte/utils/list_element.dart';
 
 class DictionaryScreen extends StatelessWidget {
   final String title;
 
-  final List<LearningItem> availableDictionaryWords = [
+  List<LearningItem> availableDictionaryWords = [
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra A',
+      'Abeja',
+      AlphabetAsset.letterA,
+    ),
+    LearningItem(
+      AlphabetAsset.letterA,
+      'Anillo',
+      AlphabetAsset.letterA,
+    ),
+    LearningItem(
+      AlphabetAsset.letterA,
+      'Avión',
+      AlphabetAsset.letterA,
+    ),
+    LearningItem(
+      AlphabetAsset.letterA,
+      'Bicicleta',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra B',
+      'Burro',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra C',
+      'Casa',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra D',
+      'Carro',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra E',
+      'Dados',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra F',
+      'Duende',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra G',
+      'Elefante',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra H',
+      'Enano',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra I',
+      'Familia',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra J',
+      'Fuente',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra K',
+      'Gato',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra L',
+      'Girasol',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra M',
+      'Huevo',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra N',
+      'Imán',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra O',
+      'Juegos',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra P',
+      'Koala',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra Q',
+      'Limón',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra R',
+      'Mesa',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra S',
+      'Nuez',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra T',
+      'Olla',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra U',
+      'Pato',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra V',
+      'Queso',
       '',
     ),
     LearningItem(
       AlphabetAsset.letterA,
-      'Letra W',
-      '',
-    ),
-    LearningItem(
-      AlphabetAsset.letterA,
-      'Letra X',
-      '',
-    ),
-    LearningItem(
-      AlphabetAsset.letterA,
-      'Letra Y',
-      '',
-    ),
-    LearningItem(
-      AlphabetAsset.letterA,
-      'Letra Z',
+      'Ratón',
       '',
     ),
   ];
@@ -148,8 +148,8 @@ class DictionaryScreen extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: ListComponent(
-          elements: availableDictionaryWords,
+        child: DictionarySearch(
+          availableDictionaryWords: availableDictionaryWords,
         ),
       ),
     );
