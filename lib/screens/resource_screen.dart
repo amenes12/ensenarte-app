@@ -26,6 +26,7 @@ class ResourceScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // to-do: navigate to the camera
+          // one-way: record a short video, send to backend, process and next.
         },
         label: const Text(
           'Tu turno',

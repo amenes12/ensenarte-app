@@ -23,7 +23,8 @@ class BasicPhraseAsset {
   static const please = 'assets/images/frases-basicas/por-favor.png';
   static const loveYou = 'assets/images/frases-basicas/te-quiero.png';
   static const iDontKnow = 'assets/images/frases-basicas/no-se.png';
-  static const whatDoesItMean = 'assets/images/frases-basicas/que-significa.png';
+  static const whatDoesItMean =
+      'assets/images/frases-basicas/que-significa.png';
 }
 
 class AlphabetAsset {
@@ -57,6 +58,18 @@ class AlphabetAsset {
 
 class NumberAsset {
   static const numberOne = 'assets/images/numeros/numero-uno.png';
+  static const numberTwo = 'assets/images/numeros/numero-uno.png';
+  static const numberThrre = 'assets/images/numeros/numero-uno.png';
+  static const numberFour = 'assets/images/numeros/numero-uno.png';
+  static const numberFive = 'assets/images/numeros/numero-uno.png';
+  static const numberSix = 'assets/images/numeros/numero-uno.png';
+  static const numberSeven = 'assets/images/numeros/numero-uno.png';
+  static const numberEight = 'assets/images/numeros/numero-uno.png';
+  static const numberNine = 'assets/images/numeros/numero-uno.png';
+  static const numberTen = 'assets/images/numeros/numero-uno.png';
+  static const numberEleven = 'assets/images/numeros/numero-uno.png';
+  static const numberTwelve = 'assets/images/numeros/numero-uno.png';
+  static const numberThirteen = 'assets/images/numeros/numero-uno.png';
 }
 
 class FamilyAsset {
