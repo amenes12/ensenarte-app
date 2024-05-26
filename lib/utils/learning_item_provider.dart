@@ -60,6 +60,7 @@ class LearningItemProvider {
         Category.basicPhrases,
       ),
     ]);
+
     learningItemsByCategory[Category.alphabet]!.addAll(
       [
         LearningItem(
@@ -220,10 +221,130 @@ class LearningItemProvider {
         ),
       ],
     );
+
     learningItemsByCategory[Category.numbers]!.addAll([
-      LearningItem(AlphabetAsset.letterA, 'Número 1', AlphabetAsset.letterA,
-          Category.numbers),
+      LearningItem(
+        NumberAsset.numberOne,
+        'Número uno',
+        NumberAsset.numberOne,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberTwo,
+        'Número dos',
+        NumberAsset.numberTwo,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberThree,
+        'Número tres',
+        NumberAsset.numberThree,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberFour,
+        'Número cuatro',
+        NumberAsset.numberFour,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberFive,
+        'Número cinco',
+        NumberAsset.numberFive,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberSix,
+        'Número seis',
+        NumberAsset.numberSix,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberSeven,
+        'Número siete',
+        NumberAsset.numberSeven,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberEight,
+        'Número ocho',
+        NumberAsset.numberEight,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberNine,
+        'Número nueve',
+        NumberAsset.numberNine,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberTen,
+        'Número diez',
+        NumberAsset.numberTen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberEleven,
+        'Número once',
+        NumberAsset.numberEleven,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberTwelve,
+        'Número doce',
+        NumberAsset.numberTwelve,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberThirteen,
+        'Número trece',
+        NumberAsset.numberThirteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberFourteen,
+        'Número catorce',
+        NumberAsset.numberFourteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberFifteen,
+        'Número quince',
+        NumberAsset.numberFifteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberSixteen,
+        'Número dieciséis',
+        NumberAsset.numberSixteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberSeventeen,
+        'Número diecisiete',
+        NumberAsset.numberSeventeen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberEighteen,
+        'Número dieciocho',
+        NumberAsset.numberEighteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberNineteen,
+        'Número diecinueve',
+        NumberAsset.numberNineteen,
+        Category.numbers,
+      ),
+      LearningItem(
+        NumberAsset.numberTwenty,
+        'Número veinte',
+        NumberAsset.numberTwenty,
+        Category.numbers,
+      ),
     ]);
+
     learningItemsByCategory[Category.family]!.addAll(
       [
         LearningItem(FamilyAsset.mom, 'Mamá', FamilyAsset.mom, Category.family),
