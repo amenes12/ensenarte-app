@@ -70,6 +70,7 @@ flutter:
     - assets/images/modulos/
     - assets/images/frases-basicas/
     - assets/images/abecedario/
+    - assets/images/numeros/
     - assets/images/familia/
 
   # An image asset can refer to one or more resolution-specific "variants", see
