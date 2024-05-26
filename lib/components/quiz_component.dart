@@ -3,6 +3,8 @@ import 'package:ensenarte/utils/learning_item_provider.dart';
 import 'package:ensenarte/utils/quiz_generator.dart';
 import 'package:flutter/material.dart';
 
+enum AnswerStatus { correct, incorrect, none }
+
 class QuizComponent extends StatefulWidget {
   const QuizComponent({super.key});
 
@@ -14,6 +16,8 @@ class _QuizComponentState extends State<QuizComponent> {
   late QuizItem currentQuiz;
   int score = 0;
   int totalQuizzes = 0;
+  bool isLoading = false;
+  AnswerStatus answerStatus = AnswerStatus.none;
 
   @override
   void initState() {
@@ -21,23 +25,36 @@ class _QuizComponentState extends State<QuizComponent> {
     currentQuiz = generateQuiz(LearningItemProvider.getAllLearningItems());
   }
 
-  void checkAnswer(String selectedAnswer) {
+  Future<void> checkAnswer(String selectedAnswer) async {
+    totalQuizzes++;
+
     if (currentQuiz.correctAnswer == selectedAnswer) {
+      answerStatus = AnswerStatus.correct;
       score++;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('!Correcto!'),
+          content: Text('¡Correcto!'),
+          duration: Duration(seconds: 1),
         ),
       );
     } else {
+      answerStatus = AnswerStatus.incorrect;
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Incorrecto!'),
+        content: Text('¡Incorrecto!'),
+        duration: Duration(seconds: 1),
       ));
     }
+    setState(() {
+      isLoading = true;
+    });
+
+    // Short delay to show loading spinner before generating new quiz
+    await Future.delayed(const Duration(seconds: 1));
 
     setState(() {
-      totalQuizzes++;
       currentQuiz = generateQuiz(LearningItemProvider.getAllLearningItems());
+      answerStatus = AnswerStatus.none;
+      isLoading = false;
     });
   }
 
@@ -45,6 +62,19 @@ class _QuizComponentState extends State<QuizComponent> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        if (answerStatus != AnswerStatus.none)
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Icon(
+              answerStatus == AnswerStatus.correct
+                  ? Icons.check_circle
+                  : Icons.cancel,
+              color: answerStatus == AnswerStatus.correct
+                  ? Colors.green
+                  : Colors.red,
+              size: 72.0,
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
@@ -55,18 +85,33 @@ class _QuizComponentState extends State<QuizComponent> {
           ),
         ),
         Expanded(
-          child: Center(
-            child: Image.asset(currentQuiz.resourceToLoadRoute),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: isLoading
+                  ? const CircularProgressIndicator()
+                  : Image.asset(currentQuiz.resourceToLoadRoute),
+            ),
           ),
         ),
-        ...currentQuiz.options.map((option) {
-          return ElevatedButton(
-            onPressed: () => checkAnswer(option),
-            child: Text(
-              option,
-            ),
-          );
-        }),
+        if (!isLoading)
+          ...currentQuiz.options.map((option) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width - 60,
+                height: MediaQuery.of(context).size.height * 0.075,
+                child: ElevatedButton(
+                  onPressed: () => checkAnswer(option),
+                  child: Text(
+                    option,
+                    style: const TextStyle(fontSize: 18.0),
+                  ),
+                ),
+              ),
+            );
+          }),
+        const Spacer(),
       ],
     );
   }
