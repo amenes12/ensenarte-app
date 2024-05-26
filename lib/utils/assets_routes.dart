@@ -58,18 +58,25 @@ class AlphabetAsset {
 
 class NumberAsset {
   static const numberOne = 'assets/images/numeros/numero-uno.png';
-  static const numberTwo = 'assets/images/numeros/numero-uno.png';
-  static const numberThrre = 'assets/images/numeros/numero-uno.png';
-  static const numberFour = 'assets/images/numeros/numero-uno.png';
-  static const numberFive = 'assets/images/numeros/numero-uno.png';
-  static const numberSix = 'assets/images/numeros/numero-uno.png';
-  static const numberSeven = 'assets/images/numeros/numero-uno.png';
-  static const numberEight = 'assets/images/numeros/numero-uno.png';
-  static const numberNine = 'assets/images/numeros/numero-uno.png';
-  static const numberTen = 'assets/images/numeros/numero-uno.png';
-  static const numberEleven = 'assets/images/numeros/numero-uno.png';
-  static const numberTwelve = 'assets/images/numeros/numero-uno.png';
-  static const numberThirteen = 'assets/images/numeros/numero-uno.png';
+  static const numberTwo = 'assets/images/numeros/numero-dos.png';
+  static const numberThree = 'assets/images/numeros/numero-tres.png';
+  static const numberFour = 'assets/images/numeros/numero-cuatro.png';
+  static const numberFive = 'assets/images/numeros/numero-cinco.png';
+  static const numberSix = 'assets/images/numeros/numero-seis.png';
+  static const numberSeven = 'assets/images/numeros/numero-siete.png';
+  static const numberEight = 'assets/images/numeros/numero-ocho.png';
+  static const numberNine = 'assets/images/numeros/numero-nueve.png';
+  static const numberTen = 'assets/images/numeros/numero-diez.png';
+  static const numberEleven = 'assets/images/numeros/numero-once.png';
+  static const numberTwelve = 'assets/images/numeros/numero-doce.png';
+  static const numberThirteen = 'assets/images/numeros/numero-trece.png';
+  static const numberFourteen = 'assets/images/numeros/numero-catorce.png';
+  static const numberFifteen = 'assets/images/numeros/numero-quince.png';
+  static const numberSixteen = 'assets/images/numeros/numero-dieciseis.png';
+  static const numberSeventeen = 'assets/images/numeros/numero-diecisiete.png';
+  static const numberEighteen = 'assets/images/numeros/numero-dieciocho.png';
+  static const numberNineteen = 'assets/images/numeros/numero-diecinueve.png';
+  static const numberTwenty = 'assets/images/numeros/numero-veinte.png';
 }
 
 class FamilyAsset {
