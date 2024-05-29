@@ -1,3 +1,4 @@
+import 'package:ensenarte/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/screens/learn_items_screen.dart';
 import 'package:ensenarte/screens/main_screen.dart';
@@ -7,9 +8,13 @@ import 'package:ensenarte/screens/dictionary_screen.dart';
 import 'package:ensenarte/screens/find_screen.dart';
 import 'package:ensenarte/screens/resource_screen.dart';
 
+import '../screens/sign_up_screen.dart';
+
 class AppRouting {
   static const initialRoute = modulesScreen;
 
+  static const signUpScreen = 'signUpScreen';
+  static const signInScreen = 'signInScreen';
   static const modulesScreen = 'modulesScreen';
   static const learnScreen = 'learnScreen';
   static const practiceScreen = 'practiceScreen';
@@ -21,8 +26,15 @@ class AppRouting {
   static Map<String, Widget Function(BuildContext)> getRoutes() {
     Map<String, Widget Function(BuildContext)> appRoute = {};
 
-    appRoute.addAll(
-        {"modulesScreen": (BuildContext context) => const ModulesScreen()});
+    appRoute.addAll({
+      "signUpScreen": (BuildContext context) => const SignUpScreen(),
+    });
+    appRoute.addAll({
+      "signInScreen": (BuildContext context) => const SignInScreen(),
+    });
+    appRoute.addAll({
+      "modulesScreen": (BuildContext context) => const ModulesScreen(),
+    });
 
     appRoute.addAll({
       "learnScreen": (BuildContext context) => LearnScreen(
