@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "692749347107",
+    "project_id": "ensenarte-app",
+    "storage_bucket": "ensenarte-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692749347107:android:fe0efc8a91e0786c2d8496",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNeqm1p-qYMfFRt55TcuGJsx1WkcUlksc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
