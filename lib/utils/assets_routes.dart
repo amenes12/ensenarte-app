@@ -1,7 +1,7 @@
 class BannerAsset {
   // General modules banners
   static const learn = 'assets/images/banners/aprender.png';
-  static const practice = 'assets/images/banners/aprender.png';
+  static const practice = 'assets/images/banners/practicar.png';
   static const dictionary = 'assets/images/banners/diccionario.png';
   static const contact = 'assets/images/banners/contacto.png';
 }

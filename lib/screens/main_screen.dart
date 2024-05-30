@@ -20,7 +20,7 @@ class ModulesScreen extends StatelessWidget {
     CardComponent(
         title: 'Practicar',
         routeName: AppRouting.practiceScreen,
-        assetName: BannerAsset.learn,
+        assetName: BannerAsset.practice,
         cardType: CardType.fullCard),
     CardComponent(
       title: 'Diccionario',
