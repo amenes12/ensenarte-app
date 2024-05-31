@@ -23,12 +23,30 @@ class AuthService {
           'email': email,
           "uid": credential.user!.uid,
         });
+
+         result = "success";
       } else {
         result = "Ingresa correo, contraseña o usuario";
       }
-      result = "success";
-    } catch (e) {
-      return e.toString();
+     
+    } on FirebaseAuthException catch (e) {
+      switch(e.code) {
+        case "email-already-in-use":
+          result = "Correo ya utilizado";
+          break;
+        case "invalid-email":
+          result = "Correo no válido";
+          break;
+        case "weak-password":
+          result = "Prueba una contraseña más fuerte";
+          break;
+        case "operation-not-allowed":
+          result = "Operación prohibida";
+          break;
+        default: 
+          result = e.message.toString();
+          break;
+      }
     }
     return result;
   }
@@ -39,12 +57,28 @@ class AuthService {
     try {
       if (email.isNotEmpty || password.isNotEmpty) {
         await auth.signInWithEmailAndPassword(email: email, password: password);
+        result = "success";
       } else {
         result = "Ingresa correo o contraseña";
       }
-      result = "success";
-    } catch (e) {
-      return e.toString();
+    } on FirebaseAuthException catch (e) {
+      switch(e.code) {
+        case "invalid-email":
+          result = "¡El correo no es válido!";
+          break;
+        case "user-disabled":
+          result = "Usuario deshabilitado";
+          break;
+        case "user-not-found":
+          result = "No existe el usuario";
+          break;
+        case "wrong-password":
+          result = "Contraseña incorrecta";
+          break;
+        default:
+          result = e.message.toString();
+          break;
+      }
     }
     return result;
   }
