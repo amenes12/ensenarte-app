@@ -59,21 +59,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100.0),
+              padding: const EdgeInsets.only(top: 75.0),
               child: SizedBox(
                 width: double.infinity,
                 height: height * 0.20,
-                child: Image.asset("assets/logo/logo.png"),
+                child: Image.asset("assets/logo/logo-no-text.png"),
               ),
             ),
             Container(
               padding: const EdgeInsets.all(24.0),
               child: const Text(
-                "Regístrate",
+                "Empieza a aprender",
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w600,
+                  color: Color.fromRGBO(97, 137, 255, 1),
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),

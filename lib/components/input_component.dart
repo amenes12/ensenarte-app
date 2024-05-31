@@ -26,12 +26,13 @@ class InputComponent extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(
-            color: Color.fromARGB(97, 0, 0, 0),
+            color: Colors.black45,
             fontSize: 16.0,
           ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           prefixIcon: Icon(
             icon,
-            color: const Color.fromARGB(97, 0, 0, 0),
+            color: Colors.black45
           ),
           border: InputBorder.none,
           filled: true,

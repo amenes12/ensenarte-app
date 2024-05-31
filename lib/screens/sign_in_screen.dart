@@ -51,23 +51,26 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: double.infinity,
-              height: height * 0.20,
-              child: Image.asset("assets/logo/logo.png"),
+            Padding(
+              padding: const EdgeInsets.only(top: 75.0),
+              child: SizedBox(
+                width: double.infinity,
+                height: height * 0.20,
+                child: Image.asset("assets/logo/logo-no-text.png"),
+              ),
             ),
             Container(
                 padding: const EdgeInsets.all(24.0),
                 child: const Text(
-                  "Iniciar sesión",
+                  "Ingresa a enSEÑArte",
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w600,
+                    color:  Color.fromRGBO(97, 137, 255, 1),
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.w700,
                   ),
                 )),
             InputComponent(
