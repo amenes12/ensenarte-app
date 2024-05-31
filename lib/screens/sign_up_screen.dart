@@ -17,6 +17,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
+  bool agreeWithTermsAndConditions = false;
 
   void signUp() async {
     String result = await AuthService().signUp(
@@ -93,10 +94,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
               icon: Icons.lock,
               isPassword: true,
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: agreeWithTermsAndConditions,
+                    onChanged: (newValue) {
+                      setState(() {
+                        agreeWithTermsAndConditions = newValue!;
+                      });
+                    },
+                  ),
+                  const Text(
+                    "Acepto los términos y condiciones",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             ButtonComponent(
-              onTap: signUp,
+              onTap: agreeWithTermsAndConditions ? signUp : null,
               text: "Crear cuenta",
-              color: const Color.fromRGBO(97, 137, 255, 1),
+              color: agreeWithTermsAndConditions ? const Color.fromRGBO(97, 137, 255, 1) : const Color.fromARGB(255, 182, 202, 255),
             ),
             GestureDetector(
               onTap: () {

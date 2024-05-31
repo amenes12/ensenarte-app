@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonComponent extends StatelessWidget {
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String text;
   final Color color;
 
