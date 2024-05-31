@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+  final googleSignIn = GoogleSignIn();
 
   Future<String> signUp({
     required String email,
@@ -24,13 +27,12 @@ class AuthService {
           "uid": credential.user!.uid,
         });
 
-         result = "success";
+        result = "success";
       } else {
         result = "Ingresa correo, contraseña o usuario";
       }
-     
     } on FirebaseAuthException catch (e) {
-      switch(e.code) {
+      switch (e.code) {
         case "email-already-in-use":
           result = "Correo ya utilizado";
           break;
@@ -43,7 +45,7 @@ class AuthService {
         case "operation-not-allowed":
           result = "Operación prohibida";
           break;
-        default: 
+        default:
           result = e.message.toString();
           break;
       }
@@ -62,7 +64,7 @@ class AuthService {
         result = "Ingresa correo o contraseña";
       }
     } on FirebaseAuthException catch (e) {
-      switch(e.code) {
+      switch (e.code) {
         case "invalid-email":
           result = "¡El correo no es válido!";
           break;
@@ -83,7 +85,32 @@ class AuthService {
     return result;
   }
 
+  signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+
+        final AuthCredential authCredential = GoogleAuthProvider.credential(
+            accessToken: googleSignInAuthentication.accessToken,
+            idToken: googleSignInAuthentication.idToken);
+
+        await auth.signInWithCredential(authCredential);
+      }
+    } on FirebaseAuthException catch (e) {
+      return e.message.toString();
+    }
+  }
+
   Future<void> signOut() async {
-    await auth.signOut();
+    if (googleSignIn.currentUser != null) {
+      await googleSignIn.disconnect();
+      await auth.signOut();
+    } else {
+      await auth.signOut();
+    }
   }
 }
