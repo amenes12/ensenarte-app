@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               return const SignInScreen();
             }
           }),
-      initialRoute: AppRouting.signInScreen,
+      // initialRoute: AppRouting.modulesScreen,
       routes: AppRouting.getRoutes(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
