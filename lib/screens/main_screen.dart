@@ -5,6 +5,7 @@ import 'package:ensenarte/utils/assets_routes.dart';
 import 'package:ensenarte/utils/card_type.dart';
 
 import '../components/card_component.dart';
+import '../components/menu_button_component.dart';
 
 class ModulesScreen extends StatelessWidget {
   const ModulesScreen({super.key});
@@ -45,54 +46,8 @@ class ModulesScreen extends StatelessWidget {
           title,
         ),
         backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
-        actions: [
-          PopupMenuButton(
-            icon: const Icon(Icons.menu),
-            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-              const PopupMenuItem(
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Icon(
-                        Icons.person,
-                        color: Color.fromRGBO(97, 137, 255, 1),
-                      ),
-                    ),
-                    Text(
-                      'Perfil',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: Color.fromRGBO(97, 137, 255, 1),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const PopupMenuDivider(),
-              PopupMenuItem(
-                onTap: () async { 
-                  await AuthService().signOut(); 
-                  Navigator.pushReplacementNamed(context, AppRouting.signInScreen);
-                },
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Icon(Icons.logout,
-                          color: Color.fromRGBO(97, 137, 255, 1)),
-                    ),
-                    Text(
-                      'Salir',
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          color: Color.fromRGBO(97, 137, 255, 1)),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )
+        actions: const [
+          MenuButtonComponent()
         ],
       ),
       body: const Center(

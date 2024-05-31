@@ -2,6 +2,7 @@ import 'package:ensenarte/components/dictionary_search.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/utils/assets_routes.dart';
 import 'package:ensenarte/models/learning_item.dart';
+import '../components/menu_button_component.dart';
 
 class DictionaryScreen extends StatelessWidget {
   final String title;
@@ -172,6 +173,9 @@ class DictionaryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: const [
+          MenuButtonComponent()
+        ],
       ),
       body: Center(
         child: DictionarySearch(

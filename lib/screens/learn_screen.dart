@@ -1,3 +1,4 @@
+import 'package:ensenarte/components/menu_button_component.dart';
 import 'package:ensenarte/models/learning_category.dart';
 import 'package:ensenarte/utils/learning_item_provider.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,9 @@ class LearnScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: const [
+          MenuButtonComponent()
+        ],
       ),
       body: Center(
         child: GridView.count(

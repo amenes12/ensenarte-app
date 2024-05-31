@@ -1,3 +1,4 @@
+import 'package:ensenarte/components/menu_button_component.dart';
 import 'package:flutter/material.dart';
 
 class ResourceScreen extends StatelessWidget {
@@ -13,6 +14,9 @@ class ResourceScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title!),
+        actions: const [
+          MenuButtonComponent()
+        ],
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [

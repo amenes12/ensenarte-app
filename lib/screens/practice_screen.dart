@@ -1,6 +1,8 @@
 import 'package:ensenarte/components/quiz_component.dart';
 import 'package:flutter/material.dart';
 
+import '../components/menu_button_component.dart';
+
 class PracticeScreen extends StatelessWidget {
   final String title;
   const PracticeScreen({super.key, required this.title});
@@ -10,8 +12,11 @@ class PracticeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: const [
+          MenuButtonComponent()
+        ],
       ),
-      body: const QuizComponent(),
+      body: const QuizComponent(),     
     );
   }
 }
