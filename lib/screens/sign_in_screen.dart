@@ -59,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: const EdgeInsets.only(top: 75.0),
               child: SizedBox(
                 width: double.infinity,
-                height: height * 0.20,
+                height: height * 0.15,
                 child: Image.asset("assets/logo/logo-no-text.png"),
               ),
             ),
@@ -69,7 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   "Ingresa a enSEÑArte",
                   style: TextStyle(
                     color:  Color.fromRGBO(97, 137, 255, 1),
-                    fontSize: 28.0,
+                    fontSize: 24.0,
                     fontWeight: FontWeight.w700,
                   ),
                 )),

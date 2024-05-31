@@ -23,13 +23,17 @@ class InputComponent extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
+        textInputAction: TextInputAction.done,
+        onTapOutside: (event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(
             color: Colors.black45,
             fontSize: 16.0,
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
           prefixIcon: Icon(
             icon,
             color: Colors.black45
