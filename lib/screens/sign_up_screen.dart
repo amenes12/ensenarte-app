@@ -120,7 +120,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ButtonComponent(
               onTap: agreeWithTermsAndConditions ? signUp : null,
               text: "Crear cuenta",
-              color: agreeWithTermsAndConditions ? const Color.fromRGBO(97, 137, 255, 1) : const Color.fromARGB(255, 182, 202, 255),
+              color: agreeWithTermsAndConditions
+                  ? const Color.fromRGBO(97, 137, 255, 1)
+                  : const Color.fromARGB(255, 182, 202, 255),
             ),
             GestureDetector(
               onTap: () {
