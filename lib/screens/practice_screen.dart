@@ -1,4 +1,4 @@
-import 'package:ensenarte/components/quiz_component.dart';
+import 'package:ensenarte/widgets/quiz_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../components/menu_button_component.dart';
@@ -13,10 +13,10 @@ class PracticeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         actions: const [
-          MenuButtonComponent()
+          MenuButtonComponent(),
         ],
       ),
-      body: const QuizComponent(),     
+      body: const QuizWidget(),
     );
   }
 }

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 enum AnswerStatus { correct, incorrect, none }
 
-class QuizComponent extends StatefulWidget {
-  const QuizComponent({super.key});
+class QuizWidget extends StatefulWidget {
+  const QuizWidget({super.key});
 
   @override
-  State<QuizComponent> createState() => _QuizComponentState();
+  State<QuizWidget> createState() => _QuizWidgetState();
 }
 
-class _QuizComponentState extends State<QuizComponent> {
+class _QuizWidgetState extends State<QuizWidget> {
   late QuizItem currentQuiz;
   int score = 0;
   int totalQuizzes = 0;
