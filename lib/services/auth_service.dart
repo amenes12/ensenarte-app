@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ensenarte/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -9,9 +10,9 @@ class AuthService {
   final googleSignIn = GoogleSignIn();
 
   Future<String> signUp({
+    required String username,
     required String email,
     required String password,
-    required String username,
   }) async {
     String result = "fail";
     try {
@@ -21,11 +22,9 @@ class AuthService {
           password: password,
         );
 
-        await firestore.collection("users").doc(credential.user!.uid).set({
-          'username': username,
-          'email': email,
-          "uid": credential.user!.uid,
-        });
+        UserModel newUser = UserModel(uid: credential.user!.uid, username: username, email: email, password: password, photoURL: "");
+
+        await firestore.collection("users").doc(credential.user!.uid).set(newUser.toJson(),);
 
         result = "success";
       } else {
