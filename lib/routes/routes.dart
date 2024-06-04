@@ -1,3 +1,5 @@
+import 'package:ensenarte/screens/communities_screen.dart';
+import 'package:ensenarte/screens/profile_screen.dart';
 import 'package:ensenarte/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/screens/learn_items_screen.dart';
@@ -5,7 +7,6 @@ import 'package:ensenarte/screens/main_screen.dart';
 import 'package:ensenarte/screens/learn_screen.dart';
 import 'package:ensenarte/screens/practice_screen.dart';
 import 'package:ensenarte/screens/dictionary_screen.dart';
-import 'package:ensenarte/screens/find_screen.dart';
 import 'package:ensenarte/screens/resource_screen.dart';
 
 import '../screens/sign_up_screen.dart';
@@ -19,9 +20,10 @@ class AppRouting {
   static const learnScreen = 'learnScreen';
   static const practiceScreen = 'practiceScreen';
   static const dictionaryScreen = 'dictionaryScreen';
-  static const findScreen = 'findScreen';
+  static const communitiesScreen = 'communitiesScreen';
   static const resourceScreen = 'resourceScreen';
   static const learningItemsScreen = 'learningItemsScreen';
+  static const profileScreen = 'profileScreen';
 
   static Map<String, Widget Function(BuildContext)> getRoutes() {
     Map<String, Widget Function(BuildContext)> appRoute = {};
@@ -55,9 +57,7 @@ class AppRouting {
     });
 
     appRoute.addAll({
-      "findScreen": (BuildContext context) => const FindScreen(
-            title: 'Contacto',
-          )
+      "communitiesScreen": (BuildContext context) => const CommunitiesScreen()
     });
 
     appRoute.addAll(
@@ -65,6 +65,9 @@ class AppRouting {
 
     appRoute.addAll(
         {"learningItemsScreen": (BuildContext context) => LearnItemsScreen()});
+
+    appRoute.addAll(
+        {"profileScreen": (BuildContext context) => const ProfileScreen()});
 
     return appRoute;
   }

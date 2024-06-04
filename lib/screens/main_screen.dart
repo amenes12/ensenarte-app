@@ -31,8 +31,8 @@ class ModulesScreen extends StatelessWidget {
       cardType: CardType.fullCard,
     ),
     CardComponent(
-      title: 'Contacto',
-      routeName: AppRouting.findScreen,
+      title: 'Comunidades',
+      routeName: AppRouting.communitiesScreen,
       assetName: BannerAsset.contact,
       cardType: CardType.fullCard,
     ),
@@ -47,7 +47,7 @@ class ModulesScreen extends StatelessWidget {
         ),
         backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
         actions: const [
-          MenuButtonComponent()
+          MenuButtonComponent(),
         ],
       ),
       body: const Center(
