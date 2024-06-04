@@ -52,17 +52,17 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
                         flex: 2,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                            vertical: 24.0,
+                            vertical: 12.0,
                             horizontal: 12.0,
                           ),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               LabelComponent(
                                 text: community["name"],
                                 icon: Icons.group,
-                                fontSize: 24.0,
+                                fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                               ),
                               LabelComponent(

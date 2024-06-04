@@ -1,4 +1,3 @@
-import 'package:ensenarte/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/routes/routes.dart';
 import 'package:ensenarte/utils/assets_routes.dart';
