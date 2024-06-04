@@ -85,7 +85,8 @@ class AuthService {
     return result;
   }
 
-  signInWithGoogle() async {
+  Future<String> signInWithGoogle() async {
+    String result = "fail";
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await googleSignIn.signIn();
@@ -99,10 +100,16 @@ class AuthService {
             idToken: googleSignInAuthentication.idToken);
 
         await auth.signInWithCredential(authCredential);
+
+        result = "success";
+      } else {
+        result = "No se pudo iniciar sesión con Google";
       }
     } on FirebaseAuthException catch (e) {
       return e.message.toString();
     }
+
+    return result;
   }
 
   Future<void> signOut() async {

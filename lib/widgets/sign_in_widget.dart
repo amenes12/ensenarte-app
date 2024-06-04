@@ -44,6 +44,35 @@ class _SignInWidgetState extends State<SignInWidget> {
     }
   }
 
+  void googleSignIn() async {
+    String result = await AuthService().signInWithGoogle();
+
+    if (result == "success") {
+      setState(() {
+        isLoading = true;
+      });
+
+      Navigator.pushReplacementNamed(
+        context,
+        AppRouting.modulesScreen,
+      );
+
+      showSnackBar(
+        context,
+        "¡Bienvenido, ${FirebaseAuth.instance.currentUser!.displayName} !",
+      );
+    }
+
+    else {
+      setState(() {
+        isLoading = false;
+      });
+
+      showSnackBar(context, result);
+    }
+
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -112,19 +141,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             ],
           ),
           GestureDetector(
-            onTap: () async {
-              await AuthService().signInWithGoogle();
-
-              Navigator.pushReplacementNamed(
-                context,
-                AppRouting.modulesScreen,
-              );
-
-              showSnackBar(
-                context,
-                "¡Bienvenido, ${FirebaseAuth.instance.currentUser!.displayName} !",
-              );
-            },
+            onTap: googleSignIn,
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
