@@ -1,4 +1,4 @@
-import 'package:ensenarte/components/dictionary_search.dart';
+import 'package:ensenarte/widgets/dictionary_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/utils/assets_routes.dart';
 import 'package:ensenarte/models/learning_item.dart';
@@ -178,7 +178,7 @@ class DictionaryScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: DictionarySearch(
+        child: DictionaryWidget(
           availableDictionaryWords: availableDictionaryWords,
         ),
       ),

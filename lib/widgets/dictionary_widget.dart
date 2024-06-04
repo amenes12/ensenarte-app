@@ -3,16 +3,16 @@ import 'package:ensenarte/components/search_bar_component.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/models/learning_item.dart';
 
-class DictionarySearch extends StatefulWidget {
+class DictionaryWidget extends StatefulWidget {
   List<LearningItem> availableDictionaryWords;
 
-  DictionarySearch({super.key, required this.availableDictionaryWords});
+  DictionaryWidget({super.key, required this.availableDictionaryWords});
 
   @override
-  State<DictionarySearch> createState() => _DictionarySearchState();
+  State<DictionaryWidget> createState() => _DictionaryWidgetState();
 }
 
-class _DictionarySearchState extends State<DictionarySearch> {
+class _DictionaryWidgetState extends State<DictionaryWidget> {
   List<LearningItem> filteredDictionaryWords = [];
 
   @override
