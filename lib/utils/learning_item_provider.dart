@@ -226,7 +226,7 @@ class LearningItemProvider {
       LearningItem(
         NumberAsset.numberOne,
         'Número uno',
-        NumberAsset.numberOne,
+        NumberVideo.numberOne,
         Category.numbers,
       ),
       LearningItem(

@@ -98,3 +98,16 @@ class WeekAsset {
   static const saturday = 'assets/images/semana/sabado.png';
   static const sunday = 'assets/images/semana/domingo.png';
 }
+
+class NumberVideo {
+  static const numberOne = 'assets/videos/numeros/uno.gif';
+  static const numberTwo = 'assets/videos/numeros/dos.gif';
+  static const numberThree = 'assets/videos/numeros/tres.gif';
+  static const numberFour = 'assets/videos/numeros/cuatro.gif';
+  static const numberFive = 'assets/videos/numeros/cinco.gif';
+  static const numberSix = 'assets/videos/numeros/seis.gif';
+  static const numberSeven = 'assets/videos/numeros/siete.gif';
+  static const numberEight = 'assets/videos/numeros/ocho.gif';
+  static const numberNine = 'assets/videos/numeros/nueve.gif';
+  static const numberTen = 'assets/videos/numeros/diez.gif';
+}
