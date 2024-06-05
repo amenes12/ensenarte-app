@@ -85,27 +85,39 @@ class _QuizWidgetState extends State<QuizWidget> {
           ),
         ),
         Expanded(
+          flex: 7,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: Center(
               child: isLoading
                   ? const CircularProgressIndicator()
-                  : Image.asset(currentQuiz.resourceToLoadRoute),
+                  : Image.asset(
+                      currentQuiz.resourceToLoadRoute,
+                      filterQuality: FilterQuality.medium,
+                    ),
             ),
           ),
         ),
         if (!isLoading)
           ...currentQuiz.options.map((option) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width - 60,
+                width: MediaQuery.of(context).size.width - 120,
                 height: MediaQuery.of(context).size.height * 0.075,
                 child: ElevatedButton(
                   onPressed: () => checkAnswer(option),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
+                    elevation: 3,
+                  ),
                   child: Text(
                     option,
-                    style: const TextStyle(fontSize: 18.0),
+                    style: const TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

@@ -14,18 +14,18 @@ class ResourceScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title!),
-        actions: const [
-          MenuButtonComponent()
-        ],
+        actions: const [MenuButtonComponent()],
       ),
       body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Image.asset(
-            resourceToLoad!,
-            height: 360.0,
-            width: 180.0,
-          )
-        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              resourceToLoad!,
+              filterQuality: FilterQuality.medium,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -35,7 +35,7 @@ class ResourceScreen extends StatelessWidget {
         label: const Text(
           'Tu turno',
           style: TextStyle(
-            color: Colors.white, 
+            color: Colors.white,
             fontSize: 20.0,
           ),
         ),
