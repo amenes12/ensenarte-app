@@ -76,6 +76,7 @@ flutter:
     - assets/images/abecedario/
     - assets/images/numeros/
     - assets/images/familia/
+    - assets/images/diccionario/
     - assets/logo/
     - assets/videos/numeros/
 
