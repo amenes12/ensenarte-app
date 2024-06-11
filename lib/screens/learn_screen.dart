@@ -44,7 +44,8 @@ class LearnScreen extends StatelessWidget {
         routeName: AppRouting.learningItemsScreen,
         cardType: CardType.halfCard,
         learningItems: LearningItemProvider.getLearningItemsByCategory(
-            categoryItem.category),
+          categoryItem.category,
+        ),
       );
     }).toList();
   }

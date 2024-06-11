@@ -20,6 +20,7 @@ class ListComponent extends StatelessWidget {
               arguments: {
                 'title': elements[index].title,
                 'resourceToLoad': elements[index].resourceToLoadRoute,
+                'isCameraSupported': elements[index].isCameraSupported,
               },
             );
           },

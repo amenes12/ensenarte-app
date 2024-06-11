@@ -7,9 +7,10 @@ class ResourceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final arguments =
-        ModalRoute.of(context)?.settings.arguments as Map<String, String>?;
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     final String? title = arguments?['title'];
     final String? resourceToLoad = arguments?['resourceToLoad'];
+    final bool? isCameraSupported = arguments?['isCameraSupported'];
 
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +28,7 @@ class ResourceScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: (isCameraSupported!) ? FloatingActionButton.extended(
         onPressed: () {
           // to-do: navigate to the camera
           // one-way: record a short video, send to backend, process and next.
@@ -42,7 +43,7 @@ class ResourceScreen extends StatelessWidget {
         foregroundColor: Colors.white,
         backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
         icon: const Icon(Icons.camera_alt_outlined),
-      ),
+      ) : null ,
     );
   }
 }
