@@ -8,7 +8,8 @@ class LearningItem {
   String resourceToLoadRoute;
   String destinationRoute = AppRouting.resourceScreen;
   Category? category;
+  bool isCameraSupported;
 
   LearningItem(
-      this.assetName, this.title, this.resourceToLoadRoute, this.category);
+      this.assetName, this.title, this.resourceToLoadRoute, this.category, {this.isCameraSupported = false});
 }
