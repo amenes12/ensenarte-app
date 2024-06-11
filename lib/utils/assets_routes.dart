@@ -111,3 +111,33 @@ class NumberVideo {
   static const numberNine = 'assets/videos/numeros/nueve.gif';
   static const numberTen = 'assets/videos/numeros/diez.gif';
 }
+
+
+class DictionaryWordAsset {
+  static const abeja = 'assets/images/diccionario/abeja.png';
+  static const anillo = 'assets/images/diccionario/anillo.png';
+  static const avion = 'assets/images/diccionario/avion.png';
+  static const bicicleta = 'assets/images/diccionario/bicicleta.png';
+  static const burro = 'assets/images/diccionario/burro.png';
+  static const casa = 'assets/images/diccionario/casa.png';
+  static const carro = 'assets/images/diccionario/carro.png';
+  static const dados = 'assets/images/diccionario/dados.png';
+  static const duende = 'assets/images/diccionario/duende.png';
+  static const elefante = 'assets/images/diccionario/elefante.png';
+  static const erizo = 'assets/images/diccionario/erizo.png';
+  static const fiesta = 'assets/images/diccionario/fiesta.png';
+  static const fuente = 'assets/images/diccionario/fuente.png';
+  static const gato = 'assets/images/diccionario/gato.png';
+  static const girasol = 'assets/images/diccionario/girasol.png';
+  static const huevo = 'assets/images/diccionario/huevo.png';
+  static const iman = 'assets/images/diccionario/iman.png';
+  static const jabon = 'assets/images/diccionario/jabon.png';
+  static const koala = 'assets/images/diccionario/koala.png';
+  static const limon = 'assets/images/diccionario/limon.png';
+  static const mesa = 'assets/images/diccionario/mesa.png';
+  static const nuez = 'assets/images/diccionario/nuez.png';
+  static const olla = 'assets/images/diccionario/olla.png';
+  static const pato = 'assets/images/diccionario/pato.png';
+  static const queso = 'assets/images/diccionario/queso.png';
+  static const raton = 'assets/images/diccionario/raton.png';
+}
