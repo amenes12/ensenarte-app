@@ -80,6 +80,8 @@ flutter:
     - assets/images/familia/
     - assets/images/diccionario/
     - assets/logo/
+    - assets/videos/frases-basicas/
+    - assets/videos/abecedario/
     - assets/videos/numeros/
 
   # An image asset can refer to one or more resolution-specific "variants", see
