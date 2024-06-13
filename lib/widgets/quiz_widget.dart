@@ -60,6 +60,8 @@ class _QuizWidgetState extends State<QuizWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         if (answerStatus != AnswerStatus.none)
@@ -81,11 +83,12 @@ class _QuizWidgetState extends State<QuizWidget> {
             'Puntos: $score / $totalQuizzes',
             style: const TextStyle(
               fontSize: 24.0,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),
         Expanded(
-          flex: 7,
+          flex: 10,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Center(
@@ -99,24 +102,50 @@ class _QuizWidgetState extends State<QuizWidget> {
           ),
         ),
         if (!isLoading)
-          ...currentQuiz.options.map((option) {
+          ...List.generate(currentQuiz.options.length, (index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              padding: const EdgeInsets.symmetric(
+                vertical: 10.0,
+              ),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width - 120,
-                height: MediaQuery.of(context).size.height * 0.075,
-                child: ElevatedButton(
-                  onPressed: () => checkAnswer(option),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
-                    elevation: 3,
-                  ),
-                  child: Text(
-                    option,
-                    style: const TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                width: width - 100,
+                height: height * 0.085,
+                child: Material(
+                  elevation: 4.0,
+                  shadowColor: Colors.black54,
+                  borderRadius: BorderRadius.circular(36.0),
+                  child: OutlinedButton(
+                    onPressed: () => checkAnswer(currentQuiz.options[index]),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: const BorderSide(
+                        color: Color.fromRGBO(97, 137, 255, 1),
+                        width: 2.0,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Image.asset(
+                            currentQuiz.optionsAssets[index],
+                            height: height * 0.065,
+                          ),
+                        ),
+                        const SizedBox(width: 4.0),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              currentQuiz.options[index],
+                              style: const TextStyle(
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
