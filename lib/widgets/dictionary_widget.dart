@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:ensenarte/models/learning_item.dart';
 
 class DictionaryWidget extends StatefulWidget {
-  List<LearningItem> availableDictionaryWords;
+  final List<LearningItem> availableDictionaryWords;
 
-  DictionaryWidget({super.key, required this.availableDictionaryWords});
+  const DictionaryWidget({super.key, required this.availableDictionaryWords});
 
   @override
   State<DictionaryWidget> createState() => _DictionaryWidgetState();

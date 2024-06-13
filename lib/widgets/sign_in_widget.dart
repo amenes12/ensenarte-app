@@ -85,7 +85,7 @@ class _SignInWidgetState extends State<SignInWidget> {
     final double height = MediaQuery.of(context).size.height;
 
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 48),
+      padding: const EdgeInsets.symmetric(vertical: 48),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -153,7 +153,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 decoration: ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(36.0),
-                    side: BorderSide(color: Colors.grey, width: 1.0),
+                    side: const BorderSide(color: Colors.grey, width: 1.0),
                   ),
                   color: Colors.white,
                 ),
