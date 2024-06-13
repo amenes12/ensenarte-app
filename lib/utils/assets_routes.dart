@@ -99,17 +99,58 @@ class WeekAsset {
   static const sunday = 'assets/images/semana/domingo.png';
 }
 
+class BasicPhraseVideo {
+  static const hello = 'assets/videos/frases-basicas/hola.gif';
+  static const goodMorning = 'assets/videos/frases-basicas/buenos-dias.gif';
+  static const goodNight = 'assets/videos/frases-basicas/buenas-noches.gif';
+  static const thankYou = 'assets/videos/frases-basicas/gracias.gif';
+  static const please = 'assets/videos/frases-basicas/por-favor.gif';
+  static const loveYou = 'assets/videos/frases-basicas/te-quiero.gif';
+  static const iDontKnow = 'assets/videos/frases-basicas/no-se.gif';
+  static const whatDoesItMean =
+      'assets/videos/frases-basicas/que-significa.gif';
+}
+
+class AlphabetVideo {
+  static const letterA = 'assets/videos/abecedario/letra-a.gif';
+  static const letterB = 'assets/videos/abecedario/letra-b.gif';
+  static const letterC = 'assets/videos/abecedario/letra-c.gif';
+  static const letterD = 'assets/videos/abecedario/letra-d.gif';
+  static const letterE = 'assets/videos/abecedario/letra-e.gif';
+  static const letterF = 'assets/videos/abecedario/letra-f.gif';
+  static const letterG = 'assets/videos/abecedario/letra-g.gif';
+  static const letterH = 'assets/videos/abecedario/letra-h.gif';
+  static const letterI = 'assets/videos/abecedario/letra-i.gif';
+  static const letterJ = 'assets/videos/abecedario/letra-j.gif';
+  static const letterK = 'assets/videos/abecedario/letra-k.gif';
+  static const letterL = 'assets/videos/abecedario/letra-l.gif';
+  static const letterM = 'assets/videos/abecedario/letra-m.gif';
+  static const letterN = 'assets/videos/abecedario/letra-n.gif';
+  static const letterO = 'assets/videos/abecedario/letra-o.gif';
+  static const letterP = 'assets/videos/abecedario/letra-p.gif';
+  static const letterQ = 'assets/videos/abecedario/letra-q.gif';
+  static const letterR = 'assets/videos/abecedario/letra-r.gif';
+  static const letterS = 'assets/videos/abecedario/letra-s.gif';
+  static const letterT = 'assets/videos/abecedario/letra-t.gif';
+  static const letterU = 'assets/videos/abecedario/letra-u.gif';
+  static const letterV = 'assets/videos/abecedario/letra-v.gif';
+  static const letterW = 'assets/videos/abecedario/letra-w.gif';
+  static const letterX = 'assets/videos/abecedario/letra-x.gif';
+  static const letterY = 'assets/videos/abecedario/letra-y.gif';
+  static const letterZ = 'assets/videos/abecedario/letra-z.gif';
+}
+
 class NumberVideo {
-  static const numberOne = 'assets/videos/numeros/uno.gif';
-  static const numberTwo = 'assets/videos/numeros/dos.gif';
-  static const numberThree = 'assets/videos/numeros/tres.gif';
-  static const numberFour = 'assets/videos/numeros/cuatro.gif';
-  static const numberFive = 'assets/videos/numeros/cinco.gif';
-  static const numberSix = 'assets/videos/numeros/seis.gif';
-  static const numberSeven = 'assets/videos/numeros/siete.gif';
-  static const numberEight = 'assets/videos/numeros/ocho.gif';
-  static const numberNine = 'assets/videos/numeros/nueve.gif';
-  static const numberTen = 'assets/videos/numeros/diez.gif';
+  static const numberOne = 'assets/videos/numeros/numero-uno.gif';
+  static const numberTwo = 'assets/videos/numeros/numero-dos.gif';
+  static const numberThree = 'assets/videos/numeros/numero-tres.gif';
+  static const numberFour = 'assets/videos/numeros/numero-cuatro.gif';
+  static const numberFive = 'assets/videos/numeros/numero-cinco.gif';
+  static const numberSix = 'assets/videos/numeros/numero-seis.gif';
+  static const numberSeven = 'assets/videos/numeros/numero-siete.gif';
+  static const numberEight = 'assets/videos/numeros/numero-ocho.gif';
+  static const numberNine = 'assets/videos/numeros/numero-nueve.gif';
+  static const numberTen = 'assets/videos/numeros/numero-diez.gif';
 }
 
 
