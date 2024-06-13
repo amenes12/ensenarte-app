@@ -84,7 +84,8 @@ class FamilyAsset {
   static const dad = 'assets/images/familia/papa.png';
   static const son = 'assets/images/familia/hijo.png';
   static const daughter = 'assets/images/familia/hija.png';
-  static const sibling = 'assets/images/familia/hermanos.png';
+  static const brother = 'assets/images/familia/hermano.png';
+  static const sister = 'assets/images/familia/hermana.png';
   static const grandMa = 'assets/images/familia/abuela.png';
   static const grandPa = 'assets/images/familia/abuelo.png';
 }

@@ -394,8 +394,18 @@ class LearningItemProvider {
           FamilyAsset.daughter,
           Category.family,
         ),
-        LearningItem(FamilyAsset.sibling, 'Hermano/Hermana',
-            FamilyAsset.sibling, Category.family),
+        LearningItem(
+          FamilyAsset.brother,
+          'Hermano',
+          FamilyAsset.brother,
+          Category.family,
+        ),
+        LearningItem(
+          FamilyAsset.sister,
+          'Hermana',
+          FamilyAsset.sister,
+          Category.family,
+        ),
         LearningItem(
           FamilyAsset.grandMa,
           'Abuela',
