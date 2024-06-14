@@ -52,6 +52,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       XFile? uploadedImage = await imagePicker.pickImage(source: ImageSource.gallery);
 
       if (uploadedImage != null) {
+        
+        setState(() {
+          isLoading = true;
+        });
         // Upload to Storage
         Reference ref = FirebaseStorage.instance.ref().child("pictures/${FirebaseAuth.instance.currentUser!.uid}.png");
 
@@ -69,7 +73,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
         // Reload image of user profile
         setState(() {
-          photoURL = uploadedImageUrl;
+          getCurrentUser();
         });
         // https://www.youtube.com/watch?v=Ttp9gpcFeNU
         // Be happy
@@ -117,7 +121,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         onPressed: updateProfilePicture,
                         icon: const Icon(
                           Icons.add_a_photo,
-                          color: Colors.black,
+                          color: Colors.black87,
                           size: 36.0,
                         ),
                       ),
@@ -125,10 +129,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ]),
                   const Padding(padding: EdgeInsetsDirectional.only(top: 24.0)),
                   Text(
-                    "¡Hola, $username!",
+                    "¡Hola, $username! 👋🏽",
                     style: const TextStyle(
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black87,
                     ),
                   ),
                 ],

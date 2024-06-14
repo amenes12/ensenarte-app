@@ -98,8 +98,13 @@ class AuthService {
             accessToken: googleSignInAuthentication.accessToken,
             idToken: googleSignInAuthentication.idToken);
 
-        await auth.signInWithCredential(authCredential);
+        final authResult = await auth.signInWithCredential(authCredential);
 
+        if (authResult.additionalUserInfo!.isNewUser) {
+          UserModel newUser = UserModel(uid: authResult.user!.uid, username: authResult.user!.displayName!, email: authResult.user!.email!, password: authResult.user!.refreshToken!, photoURL: authResult.user!.photoURL!,);
+          await firestore.collection('users').doc(newUser.uid).set(newUser.toJson());
+        }
+        
         result = "success";
       } else {
         result = "No se pudo iniciar sesión con Google";
