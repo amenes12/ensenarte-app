@@ -2,14 +2,16 @@ class Community {
   String name;
   String contact;
   String contactPhone;
-  String location;
+  String address;
+  String city;
   String imageUrl;
 
   Community({
     required this.name,
     required this.contact,
     required this.contactPhone,
-    required this.location,
+    required this.address,
+    required this.city,
     required this.imageUrl,
   });
 
@@ -18,7 +20,8 @@ class Community {
           name: json['name']! as String,
           contact: json['contact']! as String,
           contactPhone: json['contactPhone']! as String,
-          location: json['location']! as String,
+          address: json['address']! as String,
+          city: json['city']! as String,
           imageUrl: json['imageUrl']! as String,
         );
   Map<String, Object?> toJson() {
@@ -26,7 +29,8 @@ class Community {
       'name': name,
       'contact': contact,
       'contactPhone': contactPhone,
-      'location': location,
+      'address': address,
+      'city': city,
       'imageUrl': imageUrl,
     };
   }

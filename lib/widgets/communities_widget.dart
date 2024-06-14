@@ -35,7 +35,7 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
           child: Column(
             children: communities.map<Widget>((community) {
               return Container(
-                height: height * 0.20,
+                height: height * 0.25,
                 width: double.infinity,
                 alignment: Alignment.topLeft,
                 margin: const EdgeInsets.symmetric(
@@ -66,14 +66,20 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
                                 fontWeight: FontWeight.bold,
                               ),
                               LabelComponent(
-                                  text: community["location"],
+                                  text: community["address"],
                                   icon: Icons.home,
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.normal),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,),
+                              LabelComponent(
+                                text: community["city"],
+                                icon: Icons.location_on,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                               LabelComponent(
                                 text: community["contactNumber"],
                                 icon: Icons.phone,
-                                fontSize: 12.0,
+                                fontSize: 14.0,
                                 fontWeight: FontWeight.normal,
                               )
                             ],
