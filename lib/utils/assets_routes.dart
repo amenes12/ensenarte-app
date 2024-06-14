@@ -100,6 +100,12 @@ class WeekAsset {
   static const sunday = 'assets/images/semana/domingo.png';
 }
 
+class MedalAsset {
+  static const basic = 'assets/images/medallas/basico.png';
+  static const intermediate = 'assets/images/medallas/intermedio.png';
+  static const advanced = 'assets/images/medallas/avanzado.png';
+}
+
 class BasicPhraseVideo {
   static const hello = 'assets/videos/frases-basicas/hola.gif';
   static const goodMorning = 'assets/videos/frases-basicas/buenos-dias.gif';
