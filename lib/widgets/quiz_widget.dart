@@ -108,7 +108,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                 vertical: 10.0,
               ),
               child: SizedBox(
-                width: width - 100,
+                width: width - 70,
                 height: height * 0.085,
                 child: Material(
                   elevation: 4.0,

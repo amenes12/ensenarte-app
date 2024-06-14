@@ -63,24 +63,24 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
                                 text: community["name"],
                                 icon: Icons.group,
                                 fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                               ),
                               LabelComponent(
                                   text: community["address"],
                                   icon: Icons.home,
                                   fontSize: 14.0,
-                                  fontWeight: FontWeight.normal,),
+                                  fontWeight: FontWeight.w300,),
                               LabelComponent(
                                 text: community["city"],
                                 icon: Icons.location_on,
                                 fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
+                                fontWeight: FontWeight.w300,
                               ),
                               LabelComponent(
                                 text: community["contactNumber"],
                                 icon: Icons.phone,
                                 fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
+                                fontWeight: FontWeight.w300,
                               )
                             ],
                           ),

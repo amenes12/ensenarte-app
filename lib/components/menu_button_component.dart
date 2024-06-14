@@ -10,7 +10,7 @@ class MenuButtonComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      icon: const Icon(Icons.menu),
+      icon: const Icon(Icons.menu,),
       position: PopupMenuPosition.under,
       itemBuilder: (BuildContext context) => <PopupMenuEntry>[
         PopupMenuItem(
@@ -23,16 +23,20 @@ class MenuButtonComponent extends StatelessWidget {
           child: const Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 8.0),
+                padding: EdgeInsets.only(
+                  right: 8.0,
+                ),
                 child: Icon(
                   Icons.person,
                   color: Color.fromRGBO(97, 137, 255, 1),
+                  size: 28.0,
                 ),
               ),
               Text(
                 'Perfil',
                 style: TextStyle(
-                  fontSize: 14.0,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(97, 137, 255, 1),
                 ),
               ),
@@ -43,19 +47,30 @@ class MenuButtonComponent extends StatelessWidget {
         PopupMenuItem(
           onTap: () async {
             await AuthService().signOut();
-            Navigator.pushReplacementNamed(context, AppRouting.signInScreen);
+            Navigator.pushReplacementNamed(
+              context,
+              AppRouting.signInScreen,
+            );
           },
           child: const Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 8.0),
-                child:
-                    Icon(Icons.logout, color: Color.fromRGBO(97, 137, 255, 1)),
+                padding: EdgeInsets.only(
+                  right: 8.0,
+                ),
+                child: Icon(
+                  Icons.logout,
+                  color: Color.fromRGBO(97, 137, 255, 1),
+                  size: 28.0,
+                ),
               ),
               Text(
                 'Salir',
                 style: TextStyle(
-                    fontSize: 14.0, color: Color.fromRGBO(97, 137, 255, 1)),
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromRGBO(97, 137, 255, 1),
+                ),
               ),
             ],
           ),
