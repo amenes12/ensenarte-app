@@ -22,9 +22,17 @@ class AuthService {
           password: password,
         );
 
-        UserModel newUser = UserModel(uid: credential.user!.uid, username: username, email: email, password: password, photoURL: "", currentLevel: "basic");
+        UserModel newUser = UserModel(
+            uid: credential.user!.uid,
+            username: username,
+            email: email,
+            password: password,
+            photoURL: "",
+            currentLevel: "basic");
 
-        await firestore.collection("users").doc(credential.user!.uid).set(newUser.toJson(),);
+        await firestore.collection("users").doc(credential.user!.uid).set(
+              newUser.toJson(),
+            );
 
         result = "success";
       } else {
@@ -101,10 +109,20 @@ class AuthService {
         final authResult = await auth.signInWithCredential(authCredential);
 
         if (authResult.additionalUserInfo!.isNewUser) {
-          UserModel newUser = UserModel(uid: authResult.user!.uid, username: authResult.user!.displayName!, email: authResult.user!.email!, password: authResult.user!.refreshToken!, photoURL: authResult.user!.photoURL!, currentLevel: "basic");
-          await firestore.collection('users').doc(newUser.uid).set(newUser.toJson());
+          UserModel newUser = UserModel(
+            uid: authResult.user!.uid,
+            username: authResult.user!.displayName!,
+            email: authResult.user!.email!,
+            password: "",
+            photoURL: authResult.user!.photoURL!,
+            currentLevel: "basic",
+          );
+          await firestore
+              .collection('users')
+              .doc(newUser.uid)
+              .set(newUser.toJson());
         }
-        
+
         result = "success";
       } else {
         result = "No se pudo iniciar sesión con Google";
