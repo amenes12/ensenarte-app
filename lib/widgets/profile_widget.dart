@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ensenarte/utils/get_medal.dart';
 import 'package:ensenarte/utils/show_snack_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -18,6 +19,7 @@ class ProfileWidget extends StatefulWidget {
 class _ProfileWidgetState extends State<ProfileWidget> {
   String username = "";
   String photoURL = "";
+  String userLevel = "";
   bool isLoading = true;
   Uint8List? newSelectedImage;
 
@@ -41,23 +43,27 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ? snapshot["photoUrl"]
           : FirebaseAuth.instance.currentUser?.photoURL;
 
+      userLevel = snapshot.data() != null ? snapshot["currentLevel"] : "basic";
+
       isLoading = false;
     });
   }
 
   void updateProfilePicture() async {
     try {
-    // Pick image from gallery
+      // Pick image from gallery
       ImagePicker imagePicker = ImagePicker();
-      XFile? uploadedImage = await imagePicker.pickImage(source: ImageSource.gallery);
+      XFile? uploadedImage =
+          await imagePicker.pickImage(source: ImageSource.gallery);
 
       if (uploadedImage != null) {
-        
         setState(() {
           isLoading = true;
         });
         // Upload to Storage
-        Reference ref = FirebaseStorage.instance.ref().child("pictures/${FirebaseAuth.instance.currentUser!.uid}.png");
+        Reference ref = FirebaseStorage.instance
+            .ref()
+            .child("pictures/${FirebaseAuth.instance.currentUser!.uid}.png");
 
         await ref.putFile(File(uploadedImage.path)).whenComplete(() {
           showSnackBar(context, "¡Foto actualizada!");
@@ -67,7 +73,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
         // Update photoUrl of current user
 
-        await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).update({
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .update({
           "photoUrl": uploadedImageUrl,
         });
 
@@ -81,11 +90,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     } catch (e) {
       showSnackBar(context, "Cancelado");
     }
-    
   }
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 24.0),
@@ -101,8 +111,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ? Image.network(
                               photoURL,
                               fit: BoxFit.cover,
-                              width: 228.0,
-                              height: 228.0,
+                              width: height * 0.35,
+                              height: height * 0.35,
                             )
                           : CircleAvatar(
                               backgroundColor: Colors.grey[300],
@@ -127,13 +137,62 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       ),
                     )
                   ]),
-                  const Padding(padding: EdgeInsetsDirectional.only(top: 24.0)),
+                  const Padding(
+                      padding: EdgeInsetsDirectional.only(
+                    top: 24.0,
+                  )),
                   Text(
                     "¡Hola, $username! 👋🏽",
                     style: const TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.w400,
                       color: Colors.black87,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    child: Text(
+                      "Tu nivel de aprendizaje actual es",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: height * 0.25,
+                    height: height * 0.25,
+                    child: Material(
+                      elevation: 4.0,
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(36.0),
+                        bottomRight: Radius.circular(36.0),
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            child: Image.asset(
+                              getUserMedalAssets(userLevel),
+                              height: height * 0.15,
+                              width: height * 0.15,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            child: Text(
+                              userLevels[userLevel]!,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

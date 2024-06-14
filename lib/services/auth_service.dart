@@ -22,7 +22,7 @@ class AuthService {
           password: password,
         );
 
-        UserModel newUser = UserModel(uid: credential.user!.uid, username: username, email: email, password: password, photoURL: "");
+        UserModel newUser = UserModel(uid: credential.user!.uid, username: username, email: email, password: password, photoURL: "", currentLevel: "basic");
 
         await firestore.collection("users").doc(credential.user!.uid).set(newUser.toJson(),);
 
@@ -101,7 +101,7 @@ class AuthService {
         final authResult = await auth.signInWithCredential(authCredential);
 
         if (authResult.additionalUserInfo!.isNewUser) {
-          UserModel newUser = UserModel(uid: authResult.user!.uid, username: authResult.user!.displayName!, email: authResult.user!.email!, password: authResult.user!.refreshToken!, photoURL: authResult.user!.photoURL!,);
+          UserModel newUser = UserModel(uid: authResult.user!.uid, username: authResult.user!.displayName!, email: authResult.user!.email!, password: authResult.user!.refreshToken!, photoURL: authResult.user!.photoURL!, currentLevel: "basic");
           await firestore.collection('users').doc(newUser.uid).set(newUser.toJson());
         }
         
