@@ -58,7 +58,7 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.25,
+              height: height * 0.21,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -68,7 +68,7 @@ class CardComponent extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(16)),
                     ),
-                    height: height * 0.185,
+                    height: height * 0.16,
                     width: double.infinity,
                     child: Image.asset(
                       assetName,
@@ -76,7 +76,7 @@ class CardComponent extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.065,
+                    height: height * 0.05,
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 8.0,
