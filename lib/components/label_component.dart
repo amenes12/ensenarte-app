@@ -17,11 +17,12 @@ class LabelComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(icon),
+        Icon(icon, color: const Color.fromRGBO(97, 137, 255, 1)),
         const SizedBox(width: 12.0), // Add spacing
         Text(
           text,
           style: TextStyle(
+            color:Colors.black87,
             fontSize: fontSize,
             fontWeight: fontWeight,
           ), // Larger text

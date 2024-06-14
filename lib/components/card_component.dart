@@ -58,7 +58,7 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.2,
+              height: height * 0.25,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -68,7 +68,7 @@ class CardComponent extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(16)),
                     ),
-                    height: height * 0.16,
+                    height: height * 0.185,
                     width: double.infinity,
                     child: Image.asset(
                       assetName,
@@ -76,7 +76,7 @@ class CardComponent extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.04,
+                    height: height * 0.065,
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left: 8.0,
@@ -86,8 +86,8 @@ class CardComponent extends StatelessWidget {
                         title,
                         style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500),
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w400),
                       ),
                     ),
                   )

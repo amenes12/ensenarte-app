@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 24.0,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
           color: Color.fromRGBO(97, 137, 255, 1),
           elevation: 2,

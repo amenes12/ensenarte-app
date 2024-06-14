@@ -32,11 +32,20 @@ class ListComponent extends StatelessWidget {
                   bottom: 8.0,
                 ),
                 child: ListTile(
-                  title: Text(learningItem.title),
+                  title: Text(
+                    learningItem.title,
+                    style: const TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
                   leading: Image.asset(
                     learningItem.assetName,
+                    width: 60,
                   ),
-                  trailing: const Icon(Icons.chevron_right),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                  ),
                 ),
               ),
               const Divider(
