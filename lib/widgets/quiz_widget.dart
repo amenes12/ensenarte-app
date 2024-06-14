@@ -110,43 +110,40 @@ class _QuizWidgetState extends State<QuizWidget> {
               child: SizedBox(
                 width: width - 70,
                 height: height * 0.085,
-                child: Material(
-                  elevation: 4.0,
-                  shadowColor: Colors.black54,
-                  borderRadius: BorderRadius.circular(36.0),
-                  child: OutlinedButton(
-                    onPressed: () => checkAnswer(currentQuiz.options[index]),
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      side: const BorderSide(
-                        color: Color.fromRGBO(97, 137, 255, 1),
-                        width: 2.0,
-                      ),
+                child: MaterialButton(
+                  onPressed: () => checkAnswer(currentQuiz.options[index]),
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(36.0),
+                    side: const BorderSide(
+                      color: Color.fromRGBO(97, 137, 255, 1),
+                      width: 2.0,
                     ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Image.asset(
-                            currentQuiz.optionsAssets[index],
-                            height: height * 0.065,
-                          ),
+                  ),
+                  elevation: 4,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Image.asset(
+                          currentQuiz.optionsAssets[index],
+                          height: height * 0.065,
                         ),
-                        const SizedBox(width: 4.0),
-                        Expanded(
-                          child: Center(
-                            child: Text(
-                              currentQuiz.options[index],
-                              style: const TextStyle(
-                                fontSize: 22.0,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.black87,
-                              ),
+                      ),
+                      const SizedBox(width: 4.0),
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            currentQuiz.options[index],
+                            style: const TextStyle(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.black87,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
