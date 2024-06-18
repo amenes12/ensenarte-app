@@ -58,7 +58,7 @@ class LearnScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         actions: const [
-          MenuButtonComponent()
+          MenuButtonComponent(),
         ],
       ),
       body: Center(
