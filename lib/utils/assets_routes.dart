@@ -160,6 +160,16 @@ class NumberVideo {
   static const numberTen = 'assets/videos/numeros/numero-diez.gif';
 }
 
+class FamilyVideo {
+  static const mom = 'assets/videos/familia/mama.gif';
+  static const dad = 'assets/videos/familia/papa.gif';
+  static const son = 'assets/videos/familia/hijo.gif';
+  static const daughter = 'assets/videos/familia/hija.gif';
+  static const brother = 'assets/videos/familia/hermano.gif';
+  static const sister = 'assets/videos/familia/hermana.gif';
+  static const grandMa = 'assets/videos/familia/abuela.gif';
+  static const grandPa = 'assets/videos/familia/abuelo.gif';
+}
 
 class DictionaryWordAsset {
   static const abeja = 'assets/images/diccionario/abeja.png';
