@@ -1,6 +1,7 @@
 import 'package:ensenarte/screens/communities_screen.dart';
 import 'package:ensenarte/screens/profile_screen.dart';
 import 'package:ensenarte/screens/sign_in_screen.dart';
+import 'package:ensenarte/screens/validation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ensenarte/screens/learn_items_screen.dart';
 import 'package:ensenarte/screens/main_screen.dart';
@@ -24,6 +25,7 @@ class AppRouting {
   static const resourceScreen = 'resourceScreen';
   static const learningItemsScreen = 'learningItemsScreen';
   static const profileScreen = 'profileScreen';
+  static const validationScreen = 'validationScreen';
 
   static Map<String, Widget Function(BuildContext)> getRoutes() {
     Map<String, Widget Function(BuildContext)> appRoute = {};
@@ -68,6 +70,10 @@ class AppRouting {
 
     appRoute.addAll(
         {"profileScreen": (BuildContext context) => const ProfileScreen()});
+
+    appRoute.addAll({
+      "validationScreen": (BuildContext context) => const ValidationScreen()
+    });
 
     return appRoute;
   }
