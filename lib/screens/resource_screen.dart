@@ -1,4 +1,5 @@
 import 'package:ensenarte/components/menu_button_component.dart';
+import 'package:ensenarte/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class ResourceScreen extends StatelessWidget {
@@ -28,22 +29,25 @@ class ResourceScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: (isCameraSupported!) ? FloatingActionButton.extended(
-        onPressed: () {
-          // to-do: navigate to the camera
-          // one-way: record a short video, send to backend, process and next.
-        },
-        label: const Text(
-          'Tu turno',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-          ),
-        ),
-        foregroundColor: Colors.white,
-        backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
-        icon: const Icon(Icons.camera_alt_outlined),
-      ) : null ,
+      floatingActionButton: (isCameraSupported!)
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                // to-do: navigate to the camera
+                // one-way: record a short video, send to backend, process and next.
+                Navigator.pushNamed(context, AppRouting.validationScreen);
+              },
+              label: const Text(
+                'Tu turno',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                ),
+              ),
+              foregroundColor: Colors.white,
+              backgroundColor: const Color.fromRGBO(97, 137, 255, 1),
+              icon: const Icon(Icons.camera_alt_outlined),
+            )
+          : null,
     );
   }
 }
