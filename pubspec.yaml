@@ -41,6 +41,9 @@ dependencies:
   google_sign_in: ^6.2.1
   image_picker: ^1.1.2
   firebase_storage: ^11.7.7
+  image: ^4.0.17
+  camera: ^0.11.0+1
+  tflite_flutter: ^0.10.4
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -85,6 +88,7 @@ flutter:
     - assets/videos/abecedario/
     - assets/videos/numeros/
     - assets/videos/familia/
+    - assets/model/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
