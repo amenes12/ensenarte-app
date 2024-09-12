@@ -43,7 +43,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ? snapshot["photoUrl"]
           : FirebaseAuth.instance.currentUser?.photoURL;
 
-      userLevel = snapshot.data() != null ? snapshot["currentLevel"] : "basic";
+      userLevel = snapshot.data() != null ? snapshot["currentLevel"] : "none";
 
       isLoading = false;
     });
@@ -152,9 +152,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
-                      "Tu nivel de aprendizaje actual es",
+                      "Tu nivel de prácica actual es",
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.w300,
                         color: Colors.black87,
                       ),
@@ -174,7 +174,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 16.0),
-                            child: Image.asset(
+                            child: Image.network(
                               getUserMedalAssets(userLevel),
                               height: height * 0.15,
                               width: height * 0.15,

@@ -115,7 +115,7 @@ class AuthService {
             email: authResult.user!.email!,
             password: "",
             photoURL: authResult.user!.photoURL!,
-            currentLevel: "basic",
+            currentLevel: "none",
           );
           await firestore
               .collection('users')
