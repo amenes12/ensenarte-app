@@ -39,7 +39,7 @@ class ListComponent extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                     ),
                   ),
-                  leading: Image.asset(
+                  leading: Image.network(
                     learningItem.assetName,
                     width: 60,
                   ),

@@ -70,7 +70,7 @@ class CardComponent extends StatelessWidget {
                     ),
                     height: height * 0.16,
                     width: double.infinity,
-                    child: Image.asset(
+                    child: Image.network(
                       assetName,
                       fit: BoxFit.fitHeight,
                     ),

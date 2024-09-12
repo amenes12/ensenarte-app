@@ -75,19 +75,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/banners/
-    - assets/images/modulos/
-    - assets/images/frases-basicas/
-    - assets/images/abecedario/
-    - assets/images/numeros/
-    - assets/images/familia/
-    - assets/images/diccionario/
-    - assets/images/medallas/
     - assets/logo/
     - assets/videos/frases-basicas/
     - assets/videos/abecedario/
     - assets/videos/numeros/
-    - assets/videos/familia/
+    - assets/videos/familia/    
     - assets/model/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -125,7 +125,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Image.asset(
+                        child: Image.network(
                           currentQuiz.optionsAssets[index],
                           height: height * 0.065,
                         ),
