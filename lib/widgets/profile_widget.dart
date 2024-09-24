@@ -19,7 +19,7 @@ class ProfileWidget extends StatefulWidget {
 class _ProfileWidgetState extends State<ProfileWidget> {
   String username = "";
   String photoURL = "";
-  String userLevel = "";
+  UserLevel userLevel = UserLevel.none; // Use UserLevel enum
   bool isLoading = true;
   Uint8List? newSelectedImage;
 
@@ -38,12 +38,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     setState(() {
       username = snapshot.data() != null
           ? snapshot["username"]
-          : FirebaseAuth.instance.currentUser?.displayName;
+          : FirebaseAuth.instance.currentUser?.displayName ?? "";
       photoURL = snapshot.data() != null
           ? snapshot["photoUrl"]
-          : FirebaseAuth.instance.currentUser?.photoURL;
+          : FirebaseAuth.instance.currentUser?.photoURL ?? "";
 
-      userLevel = snapshot.data() != null ? snapshot["currentLevel"] : "none";
+      String currentLevel =
+          snapshot.data() != null ? snapshot["currentLevel"] : "none";
+      userLevel = UserLevel.values.firstWhere(
+        (level) => level.name == currentLevel,
+        orElse: () => UserLevel.none,
+      );
 
       isLoading = false;
     });
@@ -72,7 +77,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         String uploadedImageUrl = await ref.getDownloadURL();
 
         // Update photoUrl of current user
-
         await FirebaseFirestore.instance
             .collection("users")
             .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -81,11 +85,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         });
 
         // Reload image of user profile
-        setState(() {
-          getCurrentUser();
-        });
-        // https://www.youtube.com/watch?v=Ttp9gpcFeNU
-        // Be happy
+        getCurrentUser(); // Refresh user data without setState
       }
     } catch (e) {
       showSnackBar(context, "Cancelado");
@@ -107,7 +107,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Stack(children: [
                     ClipOval(
                       clipBehavior: Clip.antiAlias,
-                      child: (photoURL != "")
+                      child: (photoURL.isNotEmpty)
                           ? Image.network(
                               photoURL,
                               fit: BoxFit.cover,
@@ -138,9 +138,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     )
                   ]),
                   const Padding(
-                      padding: EdgeInsetsDirectional.only(
-                    top: 24.0,
-                  )),
+                    padding: EdgeInsetsDirectional.only(top: 24.0),
+                  ),
                   Text(
                     "¡Hola, $username! 👋🏽",
                     style: const TextStyle(
@@ -152,7 +151,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
-                      "Tu nivel de prácica actual es",
+                      "Tu nivel de práctica actual es",
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.w300,
@@ -175,7 +174,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Padding(
                             padding: const EdgeInsets.only(top: 16.0),
                             child: Image.network(
-                              getUserMedalAssets(userLevel),
+                              userLevel.asset, // Use asset directly from enum
                               height: height * 0.15,
                               width: height * 0.15,
                             ),
@@ -183,7 +182,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 4.0),
                             child: Text(
-                              userLevels[userLevel]!,
+                              userLevel
+                                  .displayName, // Get display name from enum
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 24.0,
