@@ -28,7 +28,7 @@ class AuthService {
             email: email,
             password: password,
             photoURL: "",
-            currentLevel: "basic");
+            currentLevel: "none");
 
         await firestore.collection("users").doc(credential.user!.uid).set(
               newUser.toJson(),
@@ -53,7 +53,7 @@ class AuthService {
           result = "Operación prohibida";
           break;
         default:
-          result = e.message.toString();
+          result = "Error, inténtelo de nuevo";
           break;
       }
     }
@@ -85,7 +85,7 @@ class AuthService {
           result = "Contraseña incorrecta";
           break;
         default:
-          result = e.message.toString();
+          result = "Error ${e.message.toString()}, inténtelo de nuevo";
           break;
       }
     }
