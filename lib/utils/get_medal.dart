@@ -1,23 +1,36 @@
 import 'package:ensenarte/utils/assets_routes.dart';
 
-Map<String, String> userLevels = {
-  "none": "Ninguno",
-  "basic": "Básico",
-  "intermediate": "Medio",
-  "advanced": "Avanzado",
-};
+enum UserLevel {
+  none,
+  basic,
+  intermediate,
+  advanced,
+}
 
-String getUserMedalAssets(String currentLevel) {
-  switch (currentLevel) {
-    case "none":
-      return MedalAsset.none;
-    case "basic":
-      return MedalAsset.basic;
-    case "intermediate":
-      return MedalAsset.intermediate;
-    case "advanced":
-      return MedalAsset.advanced;
-    default:
-      return "Recurso no encontrado";
+extension UserLevelExtension on UserLevel {
+  String get displayName {
+    switch (this) {
+      case UserLevel.none:
+        return "Ninguno";
+      case UserLevel.basic:
+        return "Básico";
+      case UserLevel.intermediate:
+        return "Medio";
+      case UserLevel.advanced:
+        return "Avanzado";
+    }
+  }
+
+  String get asset {
+    switch (this) {
+      case UserLevel.none:
+        return MedalAsset.none;
+      case UserLevel.basic:
+        return MedalAsset.basic;
+      case UserLevel.intermediate:
+        return MedalAsset.intermediate;
+      case UserLevel.advanced:
+        return MedalAsset.advanced;
+    }
   }
 }
