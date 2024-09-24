@@ -40,7 +40,17 @@ class _DictionaryWidgetState extends State<DictionaryWidget> {
           onSearchInputChanged: onSearchInputChanged,
         ),
         Expanded(
-          child: ListComponent(elements: filteredDictionaryWords),
+          child: filteredDictionaryWords.isEmpty
+              ? const Center(
+                  // Center widget ensures centering in both axes
+                  child: Text(
+                    "Palabra no disponible. ¡La tendremos pronto!",
+                    style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+                    textAlign:
+                        TextAlign.center, // Optional for centering text itself
+                  ),
+                )
+              : ListComponent(elements: filteredDictionaryWords),
         ),
       ],
     );

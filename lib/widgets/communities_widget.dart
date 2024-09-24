@@ -26,9 +26,14 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
         }
         if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
           return const Center(
-            child: Text("No hay comunidades disponibles"),
+            child: Text(
+              "No hay comunidades disponibles. ¡Pronto habrá más!",
+              style: TextStyle(fontSize: 18), // Customize text style if needed
+              textAlign: TextAlign.center, // Center align the text
+            ),
           );
         }
+
         List communities = snapshots.data!.docs;
 
         return SingleChildScrollView(
@@ -66,10 +71,11 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
                                 fontWeight: FontWeight.w500,
                               ),
                               LabelComponent(
-                                  text: community["address"],
-                                  icon: Icons.home,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w300,),
+                                text: community["address"],
+                                icon: Icons.home,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w300,
+                              ),
                               LabelComponent(
                                 text: community["city"],
                                 icon: Icons.location_on,
@@ -89,11 +95,15 @@ class _CommunitiesWidgetState extends State<CommunitiesWidget> {
                       Expanded(
                         flex: 1,
                         child: community["imageUrl"] != null
-                            ? Image.network(community["imageUrl"],
-                                fit: BoxFit.fitHeight)
-                            : const Icon(Icons.image,
+                            ? Image.network(
+                                community["imageUrl"],
+                                fit: BoxFit.fitHeight,
+                              )
+                            : const Icon(
+                                Icons.image,
                                 size: 60.0,
-                                color: Colors.grey), // Placeholder icon
+                                color: Colors.grey,
+                              ), // Placeholder icon
                       ),
                     ],
                   ),
