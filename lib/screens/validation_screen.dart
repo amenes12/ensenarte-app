@@ -7,9 +7,12 @@ class ValidationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: Center(
-          child: ValidationWidget(title: 'validacion',)
-        )
+      body: Center(
+        child: ValidationWidget(
+          title: 'validacion',
+          targetLetter: ' B', // Letra específica que debe detectar
+        ),
+      ),
     );
   }
 }
