@@ -20,6 +20,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   String username = "";
   String photoURL = "";
   UserLevel userLevel = UserLevel.none; // Use UserLevel enum
+  int maxScore = 0;
   bool isLoading = true;
   Uint8List? newSelectedImage;
 
@@ -49,6 +50,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         (level) => level.name == currentLevel,
         orElse: () => UserLevel.none,
       );
+
+      maxScore = snapshot.data() != null ? snapshot["maxScore"] : 0;
 
       isLoading = false;
     });
@@ -148,20 +151,44 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       color: Colors.black87,
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24.0, bottom: 12.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Tu puntaje máximo es: ",
+                          style: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          "$maxScore puntos 🏆",
+                          style: const TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromARGB(255, 41, 164, 45),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    padding: EdgeInsets.only(bottom: 24.0),
                     child: Text(
-                      "Tu nivel de práctica actual es",
+                      "y tu nivel de práctica actual es: ",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 22.0,
                         fontWeight: FontWeight.w300,
                         color: Colors.black87,
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: height * 0.25,
-                    height: height * 0.25,
+                    width: height * 0.3,
+                    height: height * 0.3,
                     child: Material(
                       elevation: 4.0,
                       color: Colors.white,
@@ -172,21 +199,21 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
+                            padding: const EdgeInsets.only(top: 24.0),
                             child: Image.network(
                               userLevel.asset, // Use asset directly from enum
-                              height: height * 0.15,
-                              width: height * 0.15,
+                              height: height * 0.18,
+                              width: height * 0.18,
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            padding: const EdgeInsets.symmetric(vertical: 24.0),
                             child: Text(
                               userLevel
                                   .displayName, // Get display name from enum
                               style: const TextStyle(
                                 color: Colors.black,
-                                fontSize: 24.0,
+                                fontSize: 28.0,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
