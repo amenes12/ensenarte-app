@@ -64,18 +64,8 @@ class _QuizWidgetState extends State<QuizWidget> {
     if (currentQuiz.correctAnswer == selectedAnswer) {
       answerStatus = AnswerStatus.correct;
       score++;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('¡Correcto!'),
-          duration: Duration(seconds: 1),
-        ),
-      );
     } else {
       answerStatus = AnswerStatus.incorrect;
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('¡Incorrecto!'),
-        duration: Duration(seconds: 1),
-      ));
     }
 
     setState(() {
@@ -111,33 +101,51 @@ class _QuizWidgetState extends State<QuizWidget> {
         .get();
 
     String currentLevelString = userDoc['currentLevel'] ?? "none";
-
+    int currentMaxScore = userDoc['maxScore'] ?? 0;
     // Convert string level to UserLevel enum
     currentUserLevel = UserLevel.values.firstWhere(
-      (level) => level.displayName == currentLevelString,
+      (level) => level.name == currentLevelString,
       orElse: () => UserLevel.none, // Default to 'none' if not found
     );
 
-    if (score == totalQuizzes) {
+    if (score == totalQuizzes &&
+        (selectedDifficulty!.index + 1) > currentUserLevel.index) {
       // User finished with a perfect score
       message = '¡Felicidades! Has ganado una medalla:';
 
       // Update user badge in Firebase if the new level is higher
-      if (currentUserLevel.index <
-              (Difficulty.values.indexOf(selectedDifficulty!) + 1) &&
-          currentUserLevel != UserLevel.advanced) {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .update({
+        "currentLevel": UserLevel.values[selectedDifficulty!.index + 1].name,
+      });
+
+      medalAsset = UserLevel.values[selectedDifficulty!.index + 1].asset;
+
+      if (currentMaxScore < score) {
         await FirebaseFirestore.instance
             .collection("users")
             .doc(FirebaseAuth.instance.currentUser!.uid)
             .update({
-          "currentLevel": UserLevel.values[selectedDifficulty!.index + 1].name,
+          "maxScore": score,
         });
-
-        medalAsset = UserLevel.values[selectedDifficulty!.index + 1].asset;
       }
     } else {
       // User didn't get a perfect score
-      message = 'Tu puntuación fue: $score. ¡Sigue intentándolo!';
+      message = 'Obtuviste $score puntos. ¡Sigue practicando! 💪🏻';
+
+      if (currentMaxScore < score) {
+        // Update max score if the new score is higher
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .update({
+          "maxScore": score,
+        });
+
+        message = '¡Obtuviste un nuevo mejor puntaje: $score puntos! 📈';
+      }
     }
 
     // Show the dialog
@@ -145,13 +153,16 @@ class _QuizWidgetState extends State<QuizWidget> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Resultado de la práctica'),
+          title: const Text('¿Cómo te fue en la práctica? 🤓'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(message),
               if (medalAsset != null) // Show the medal asset if applicable
-                Image.network(medalAsset),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  child: Image.network(medalAsset),
+                ),
             ],
           ),
           actions: [
@@ -185,23 +196,45 @@ class _QuizWidgetState extends State<QuizWidget> {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-              'Selecciona la dificultad de práctica',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
+              'Elige la dificultad de práctica 🎯',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.easy),
-              child: const Text('Básico (10 preguntas)'),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Fácil (10 preguntas)',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+              ),
             ),
+            const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.medium),
-              child: const Text('Medio (20 preguntas)'),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Medio (20 preguntas)',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+              ),
             ),
+            const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.hard),
-              child: const Text('Avanzado (30 preguntas)'),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Difícil (30 preguntas)',
+                  style: TextStyle(fontSize: 22.0),
+                ),
+              ),
             ),
           ],
         ),
