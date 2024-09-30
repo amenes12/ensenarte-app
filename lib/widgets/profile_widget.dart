@@ -145,8 +145,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                   Text(
                     "¡Hola, $username! 👋🏽",
-                    style: const TextStyle(
-                      fontSize: 24.0,
+                    style: TextStyle(
+                      fontSize: height * 0.03,
                       fontWeight: FontWeight.w400,
                       color: Colors.black87,
                     ),
@@ -156,31 +156,31 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           "Tu puntaje máximo es: ",
                           style: TextStyle(
-                            fontSize: 22.0,
+                            fontSize: height * 0.023,
                             fontWeight: FontWeight.w300,
                             color: Colors.black87,
                           ),
                         ),
                         Text(
                           "$maxScore puntos 🏆",
-                          style: const TextStyle(
-                            fontSize: 22.0,
+                          style: TextStyle(
+                            fontSize: height * 0.023,
                             fontWeight: FontWeight.w500,
-                            color: Color.fromARGB(255, 41, 164, 45),
+                            color: const Color.fromARGB(255, 41, 164, 45),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 24.0),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24.0),
                     child: Text(
                       "y tu nivel de práctica actual es: ",
                       style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: height * 0.023,
                         fontWeight: FontWeight.w300,
                         color: Colors.black87,
                       ),
@@ -199,7 +199,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 24.0),
+                            padding: EdgeInsets.only(top: height * 0.03),
                             child: Image.network(
                               userLevel.asset, // Use asset directly from enum
                               height: height * 0.18,
@@ -207,13 +207,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 24.0),
+                            padding:
+                                EdgeInsets.symmetric(vertical: height * 0.02),
                             child: Text(
                               userLevel
                                   .displayName, // Get display name from enum
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 28.0,
+                                fontSize: height * 0.03,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),

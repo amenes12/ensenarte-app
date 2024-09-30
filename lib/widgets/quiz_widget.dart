@@ -198,41 +198,44 @@ class _QuizWidgetState extends State<QuizWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Elige la dificultad de práctica 🎯',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                fontSize: height * 0.028,
+                fontWeight: FontWeight.w400,
+              ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 32),
+            SizedBox(height: height * 0.03),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.easy),
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
+              child: Padding(
+                padding: EdgeInsets.all(height * 0.015),
                 child: Text(
                   'Fácil (10 preguntas)',
-                  style: TextStyle(fontSize: 22.0),
+                  style: TextStyle(fontSize: height * 0.022),
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: height * 0.025),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.medium),
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
+              child: Padding(
+                padding: EdgeInsets.all(height * 0.015),
                 child: Text(
                   'Medio (20 preguntas)',
-                  style: TextStyle(fontSize: 22.0),
+                  style: TextStyle(fontSize: height * 0.022),
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: height * 0.025),
             ElevatedButton(
               onPressed: () => selectDifficulty(Difficulty.hard),
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
+              child: Padding(
+                padding: EdgeInsets.all(height * 0.015),
                 child: Text(
                   'Difícil (30 preguntas)',
-                  style: TextStyle(fontSize: 22.0),
+                  style: TextStyle(fontSize: height * 0.022),
                 ),
               ),
             ),
@@ -245,7 +248,7 @@ class _QuizWidgetState extends State<QuizWidget> {
       children: [
         if (answerStatus != AnswerStatus.none)
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(height * 0.015),
             child: Icon(
               answerStatus == AnswerStatus.correct
                   ? Icons.check_circle
@@ -253,15 +256,15 @@ class _QuizWidgetState extends State<QuizWidget> {
               color: answerStatus == AnswerStatus.correct
                   ? Colors.green
                   : Colors.red,
-              size: 72.0,
+              size: height * 0.075,
             ),
           ),
         Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(height * 0.015),
           child: Text(
             'Puntos: $score / $maxQuizzes',
-            style: const TextStyle(
-              fontSize: 24.0,
+            style: TextStyle(
+              fontSize: height * 0.028,
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -269,7 +272,7 @@ class _QuizWidgetState extends State<QuizWidget> {
         Expanded(
           flex: 10,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(height * 0.015),
             child: Center(
               child: isLoading
                   ? const CircularProgressIndicator()
@@ -283,8 +286,8 @@ class _QuizWidgetState extends State<QuizWidget> {
         if (!isLoading)
           ...List.generate(currentQuiz.options.length, (index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10.0,
+              padding: EdgeInsets.symmetric(
+                vertical: height * 0.01,
               ),
               child: SizedBox(
                 width: width - 70,
@@ -303,19 +306,20 @@ class _QuizWidgetState extends State<QuizWidget> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: width * 0.025),
                         child: Image.network(
                           currentQuiz.optionsAssets[index],
                           height: height * 0.065,
                         ),
                       ),
-                      const SizedBox(width: 4.0),
+                      SizedBox(width: width * 0.015),
                       Expanded(
                         child: Center(
                           child: Text(
                             currentQuiz.options[index],
-                            style: const TextStyle(
-                              fontSize: 22.0,
+                            style: TextStyle(
+                              fontSize: height * 0.028,
                               fontWeight: FontWeight.w300,
                               color: Colors.black87,
                             ),

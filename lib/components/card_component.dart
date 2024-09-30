@@ -26,11 +26,9 @@ class CardComponent extends StatelessWidget {
     final height = size.height;
 
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 16.0,
-        left: 4.0,
-        right: 4.0,
-        bottom: 8.0,
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.05,
+        vertical: size.height * 0.01,
       ),
       child: Column(
         children: [
@@ -58,7 +56,7 @@ class CardComponent extends StatelessWidget {
                 ],
               ),
               width: width,
-              height: height * 0.21,
+              height: height * 0.2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,17 +74,17 @@ class CardComponent extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.05,
+                    height: height * 0.04,
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 8.0,
-                        top: 4.0,
+                      padding: EdgeInsets.only(
+                        left: size.width * 0.02,
+                        top: size.height * 0.01,
                       ),
                       child: Text(
                         title,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18.0,
+                            fontSize: size.height * 0.02,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
