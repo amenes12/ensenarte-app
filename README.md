@@ -1,6 +1,6 @@
 # enSEÑArte Mobile Application
 
-This is a mobile application project based on Flutter to learn peruvian sign language for the deaf community.
+This is a mobile application project based on Flutter to learn basic peruvian sign language vocabulary for the deaf community.
 
 ## Getting Started
 
