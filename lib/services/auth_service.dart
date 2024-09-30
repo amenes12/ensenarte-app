@@ -23,12 +23,14 @@ class AuthService {
         );
 
         UserModel newUser = UserModel(
-            uid: credential.user!.uid,
-            username: username,
-            email: email,
-            password: password,
-            photoURL: "",
-            currentLevel: "none");
+          uid: credential.user!.uid,
+          username: username,
+          email: email,
+          password: password,
+          photoURL: "",
+          currentLevel: "none",
+          maxScore: 0,
+        );
 
         await firestore.collection("users").doc(credential.user!.uid).set(
               newUser.toJson(),
@@ -116,6 +118,7 @@ class AuthService {
             password: "",
             photoURL: authResult.user!.photoURL!,
             currentLevel: "none",
+            maxScore: 0,
           );
           await firestore
               .collection('users')
