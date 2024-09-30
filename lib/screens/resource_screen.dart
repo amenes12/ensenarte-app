@@ -34,7 +34,10 @@ class ResourceScreen extends StatelessWidget {
               onPressed: () {
                 // to-do: navigate to the camera
                 // one-way: record a short video, send to backend, process and next.
-                Navigator.pushNamed(context, AppRouting.validationScreen);
+                Navigator.pushNamed(context, AppRouting.validationScreen,
+                    arguments: {
+                      'targetLetter': title.replaceFirst('Letra', ''),
+                    });
               },
               label: const Text(
                 'Tu turno',

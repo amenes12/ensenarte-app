@@ -6,10 +6,14 @@ import '../helpers/gesture_classification_helper.dart';
 late List<CameraDescription> _cameras;
 
 class ValidationWidget extends StatefulWidget {
-  const ValidationWidget({super.key, required this.title, required this.targetLetter});
+  const ValidationWidget({
+    super.key,
+    required this.title,
+    required this.targetLetter,
+  });
 
   final String title;
-  final String targetLetter; // Nueva propiedad para la seña específica
+  final String? targetLetter; // Nueva propiedad para la seña específica
 
   @override
   State<ValidationWidget> createState() => _ValidationWidgetState();
@@ -23,12 +27,13 @@ class _ValidationWidgetState extends State<ValidationWidget>
   bool _isProcessing = false;
   bool _isGestureCorrect = false; // Indica si el gesto es correcto
   late CameraDescription _cameraDescription;
-  bool _gestureDetected = false; // Variable para asegurarse de que se ha detectado un gesto
+  bool _gestureDetected =
+      false; // Variable para asegurarse de que se ha detectado un gesto
 
   // init camera
   _initCamera() {
     _cameraDescription = _cameras.firstWhere(
-            (element) => element.lensDirection == CameraLensDirection.front);
+        (element) => element.lensDirection == CameraLensDirection.front);
     _cameraController = CameraController(
         _cameraDescription, ResolutionPreset.high,
         imageFormatGroup: Platform.isIOS
@@ -49,14 +54,15 @@ class _ValidationWidgetState extends State<ValidationWidget>
     }
     _isProcessing = true;
     _classification =
-    await _gestureClassificationHelper.inferenceCameraFrame(cameraImage);
+        await _gestureClassificationHelper.inferenceCameraFrame(cameraImage);
     _isProcessing = false;
 
     // Aquí agregamos la lógica para verificar si la letra específica se detectó correctamente
     if (_classification != null) {
-      double threshold = 0.8; // Umbral de confianza para considerar la detección correcta
-      bool gestureCorrect = _classification!.entries
-          .any((entry) => entry.key == widget.targetLetter && entry.value > threshold);
+      double threshold =
+          0.8; // Umbral de confianza para considerar la detección correcta
+      bool gestureCorrect = _classification!.entries.any((entry) =>
+          entry.key == widget.targetLetter && entry.value > threshold);
 
       setState(() {
         _isGestureCorrect = gestureCorrect;
@@ -79,7 +85,8 @@ class _ValidationWidgetState extends State<ValidationWidget>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initHelper(); // Iniciamos el proceso de inicialización
     });
-    WidgetsBinding.instance.addObserver(this); // Agregamos el observador del ciclo de vida
+    WidgetsBinding.instance
+        .addObserver(this); // Agregamos el observador del ciclo de vida
   }
 
   _camerasInit() async {
@@ -151,67 +158,69 @@ class _ValidationWidgetState extends State<ValidationWidget>
               children: [
                 if (_classification != null)
                   ...(_classification!.entries.toList()
-                    ..sort(
+                        ..sort(
                           (a, b) => a.value.compareTo(b.value),
-                    ))
+                        ))
                       .reversed
                       .take(3)
                       .map(
                         (e) => Container(
-                      padding: const EdgeInsets.all(8),
-                      color: Colors.white,
-                      child: Row(
-                        children: [
-                          Text(e.key),
-                          const Spacer(),
-                          Text(e.value.toStringAsFixed(2))
-                        ],
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.white,
+                          child: Row(
+                            children: [
+                              Text(e.key),
+                              const Spacer(),
+                              Text(e.value.toStringAsFixed(2))
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
                 // Aquí se muestra el mensaje correcto o de "inténtalo de nuevo"
                 if (_gestureDetected)
                   _isGestureCorrect
                       ? Container(
-                    margin: const EdgeInsets.all(16),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.check, color: Colors.white),
-                        SizedBox(width: 8),
-                        Text(
-                          "¡Gesto Correcto!",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  )
+                          margin: const EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.greenAccent,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.check, color: Colors.white),
+                              SizedBox(width: 8),
+                              Text(
+                                "¡Gesto Correcto!",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        )
                       : Container(
-                    margin: const EdgeInsets.all(16),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.close, color: Colors.white),
-                        SizedBox(width: 8),
-                        Text(
-                          "Inténtalo de nuevo",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  )
+                          margin: const EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.close, color: Colors.white),
+                              SizedBox(width: 8),
+                              Text(
+                                "Inténtalo de nuevo",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        )
               ],
             ),
           ),

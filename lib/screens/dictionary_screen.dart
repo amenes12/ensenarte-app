@@ -7,7 +7,7 @@ import '../components/menu_button_component.dart';
 class DictionaryScreen extends StatelessWidget {
   final String title;
 
-  List<LearningItem> availableDictionaryWords = [
+  final List<LearningItem> availableDictionaryWords = [
     LearningItem(
       DictionaryWordAsset.abeja,
       'Abeja',
@@ -23,7 +23,7 @@ class DictionaryScreen extends StatelessWidget {
     LearningItem(
       DictionaryWordAsset.avion,
       'Avión',
-      DictionaryWordAsset.avion,      
+      DictionaryWordAsset.avion,
       Category.generalWords,
     ),
     LearningItem(

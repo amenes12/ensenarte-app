@@ -6,11 +6,15 @@ class ValidationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, String>?;
+    String? targetLetter = arguments?['targetLetter'];
+
+    return Scaffold(
       body: Center(
         child: ValidationWidget(
           title: 'validacion',
-          targetLetter: ' B', // Letra específica que debe detectar
+          targetLetter: targetLetter, // Letra específica que debe detectar
         ),
       ),
     );
