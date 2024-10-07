@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import '../components/menu_button_component.dart';
 import '../helpers/gesture_classification_helper.dart';
 
 late List<CameraDescription> _cameras;
@@ -27,8 +28,7 @@ class _ValidationWidgetState extends State<ValidationWidget>
   bool _isProcessing = false;
   bool _isGestureCorrect = false; // Indica si el gesto es correcto
   late CameraDescription _cameraDescription;
-  bool _gestureDetected =
-      false; // Variable para asegurarse de que se ha detectado un gesto
+  bool _gestureDetected = false; // Variable para asegurarse de que se ha detectado un gesto
 
   // init camera
   _initCamera() {
@@ -146,86 +146,91 @@ class _ValidationWidgetState extends State<ValidationWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          child: cameraWidget(context),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                if (_classification != null)
-                  ...(_classification!.entries.toList()
-                        ..sort(
-                          (a, b) => a.value.compareTo(b.value),
-                        ))
-                      .reversed
-                      .take(3)
-                      .map(
-                        (e) => Container(
-                          padding: const EdgeInsets.all(8),
-                          color: Colors.white,
-                          child: Row(
-                            children: [
-                              Text(e.key),
-                              const Spacer(),
-                              Text(e.value.toStringAsFixed(2))
-                            ],
-                          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: const [
+          MenuButtonComponent(),
+        ],
+      ),
+      body: Stack(
+        children: [
+          SizedBox(
+            child: cameraWidget(context),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  if (_classification != null)
+                    ...(_classification!.entries.toList()
+                      ..sort((a, b) => a.value.compareTo(b.value)))
+                        .reversed
+                        .take(3)
+                        .map(
+                          (e) => Container(
+                        padding: const EdgeInsets.all(8),
+                        color: Colors.white,
+                        child: Row(
+                          children: [
+                            Text(e.key),
+                            const Spacer(),
+                            Text(e.value.toStringAsFixed(2))
+                          ],
                         ),
                       ),
-                // Aquí se muestra el mensaje correcto o de "inténtalo de nuevo"
-                if (_gestureDetected)
-                  _isGestureCorrect
-                      ? Container(
-                          margin: const EdgeInsets.all(16),
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.greenAccent,
-                            borderRadius: BorderRadius.circular(8),
+                    ),
+                  if (_gestureDetected)
+                    _isGestureCorrect
+                        ? Container(
+                      margin: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.greenAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.check, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text(
+                            "¡Gesto Correcto!",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.check, color: Colors.white),
-                              SizedBox(width: 8),
-                              Text(
-                                "¡Gesto Correcto!",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                        ],
+                      ),
+                    )
+                        : Container(
+                      margin: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.close, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text(
+                            "Inténtalo de nuevo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
-                        )
-                      : Container(
-                          margin: const EdgeInsets.all(16),
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.redAccent,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.close, color: Colors.white),
-                              SizedBox(width: 8),
-                              Text(
-                                "Inténtalo de nuevo",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        )
-              ],
+                        ],
+                      ),
+                    )
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

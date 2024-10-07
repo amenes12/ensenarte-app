@@ -13,7 +13,7 @@ class ValidationScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: ValidationWidget(
-          title: 'validacion',
+          title: 'Validación Letra ${targetLetter!}',
           targetLetter: targetLetter, // Letra específica que debe detectar
         ),
       ),
