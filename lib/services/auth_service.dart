@@ -16,7 +16,7 @@ class AuthService {
   }) async {
     String result = "fail";
     try {
-      if (email.isNotEmpty || password.isNotEmpty || username.isNotEmpty) {
+      if (email.isNotEmpty && password.isNotEmpty && username.isNotEmpty) {
         UserCredential credential = await auth.createUserWithEmailAndPassword(
           email: email,
           password: password,
@@ -38,12 +38,12 @@ class AuthService {
 
         result = "success";
       } else {
-        result = "Ingresa correo, contraseña o usuario";
+        result = "Todos los campos son obligatorios";
       }
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "email-already-in-use":
-          result = "Correo ya utilizado";
+          result = "Correo ya utilizado, intente con uno diferente";
           break;
         case "invalid-email":
           result = "Correo no válido";
@@ -86,8 +86,11 @@ class AuthService {
         case "wrong-password":
           result = "Contraseña incorrecta";
           break;
+        case "invalid-credential":
+          result = "Correo o contraseña incorrectos";
+          break;
         default:
-          result = "Error ${e.message.toString()}, inténtelo de nuevo";
+          result = "Error, inténtelo de nuevo";
           break;
       }
     }

@@ -11,7 +11,7 @@ class DictionaryScreen extends StatelessWidget {
     LearningItem(
       DictionaryWordAsset.abeja,
       'Abeja',
-      DictionaryWordAsset.abeja,
+      FamilyVideo.brother,
       Category.generalWords,
     ),
     LearningItem(
@@ -53,7 +53,7 @@ class DictionaryScreen extends StatelessWidget {
     LearningItem(
       DictionaryWordAsset.dados,
       'Dados',
-      DictionaryWordAsset.dados,
+      FamilyVideo.son,
       Category.generalWords,
     ),
     LearningItem(
